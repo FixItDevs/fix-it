@@ -1,15 +1,13 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv"
-
-dotenv.config();
+import mongoose from "mongoose";
 
 const app = express();
-const port = process.env.PORT || 3000;
+
+app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Server is running');
-})
+  res.json({message: 'Server is running'});
+});
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-})
+export default app;
