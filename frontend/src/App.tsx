@@ -1,12 +1,7 @@
-import './App.css'
+import "./App.css";
 
 function App() {
-
-  return (
-    <>
-      FixIt
-    </>
-  )
+  return <>FixIt Test for husky</>;
 }
 
-export default App
+export default App;
