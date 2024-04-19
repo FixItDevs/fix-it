@@ -7,9 +7,9 @@ dotenv.config();
 
 const dbPassword = process.env.MONGO_PW;
 const dbUserName = process.env.MONGO_USERNAME
-const dbName = process.env.MONGO_DBNAME
+const dbName = process.env.MONGO_DBNAME || `fixit_DEV`
 
-const mongoDbUrl = `mongodb+srv://${dbUserName}:${dbPassword}@cluster0.xi8zihz.mongodb.net/?retryWrites=true&w=majority&appName=${dbName}`
+const mongoDbUrl = `mongodb+srv://${dbUserName}:${dbPassword}@cluster0.7zmqlik.mongodb.net/?retryWrites=true&w=majority&appName=${dbName}`
 
 const app = express();
 
