@@ -5,7 +5,11 @@ import cors from "cors"
 
 dotenv.config();
 
-const mongoDbUrl = `mongodb+srv://sidra1360:${process.env.MONGO_PW}@cluster0.xi8zihz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+const dbPassword = process.env.MONGO_PW;
+const dbUserName = process.env.MONGO_USERNAME
+const dbName = process.env.MONGO_DBNAME
+
+const mongoDbUrl = `mongodb+srv://${dbUserName}:${dbPassword}@cluster0.xi8zihz.mongodb.net/?retryWrites=true&w=majority&appName=${dbName}`
 
 const app = express();
 
