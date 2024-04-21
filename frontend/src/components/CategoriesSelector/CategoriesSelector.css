@@ -1,6 +1,7 @@
 .category-selector-box {
+  display: flex;
   height: 93vh;
-  /* width: 20vw; */
-  background-color: #fff;
+  background-color: var(--primary-background);
   flex: 1 1 300px;
+  padding: 20px 30px;
 ;}

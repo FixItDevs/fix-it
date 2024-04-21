@@ -1,8 +1,29 @@
-.feed-box {
-  height: 93vh;
-  /* width: 20vw; */
-  background-color: #eff;
+.feed-col-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 93vh;
+  background-color: var(--primary-background);
   flex: 3 3 900px;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  padding: 20px 30px;
+}
+
+.feed-title {
+  font-size: 1.8rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.main-feed-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+}
+
+.feed-item {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 300;
 }

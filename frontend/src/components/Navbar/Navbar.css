@@ -1,6 +1,6 @@
 nav {
   height: 7vh;
-  background-color: #579c7c;
+  background-color: var(--secondary-background);
 }
 
 .navbar {
