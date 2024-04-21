@@ -25,9 +25,9 @@ nav {
 }
 
 .nav-search input[type="text"] {
-  width: 40vw; 
-  padding: 10px; 
-  border-radius: 20px; 
-  border: 1px solid #ccc; 
-  outline: none; 
+  width: 40vw;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
 }
