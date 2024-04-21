@@ -1,6 +1,6 @@
-import "./CategoriesSelector.css";
+import "./CategoriesSelectorList.css";
 
-const CategoriesSelector = () => {
+const CategoriesSelectorList = () => {
   return (
     <div className="category-selector-box">
       <div className="categories-title-box">
@@ -19,4 +19,4 @@ const CategoriesSelector = () => {
   );
 };
 
-export default CategoriesSelector;
+export default CategoriesSelectorList;
