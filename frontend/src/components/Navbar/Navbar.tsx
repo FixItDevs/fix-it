@@ -235,8 +235,7 @@ export default function Navbar() {
       </Box>
       {renderMobileMenu}
       {renderMenu}
-      {/* Add margin to the top of your content to prevent it from being hidden behind the app bar */}
-      <Box sx={{ marginTop: 8 }}>{/* Your content goes here */}</Box>
+      <Box sx={{ marginTop: 8 }}></Box>
     </Box>
   );
 }
