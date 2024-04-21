@@ -6,32 +6,38 @@ const postModel = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  date: {
-    type: Date,
-    default: Date.now
+  postText: { 
+    title: { type: String},
+    description: { type: String }
   },
   tags: [{
-    mainTag: String,
-    subTag: String
+    mainTags: [String],
+    subTag: [String]
   }],
   images: [{
-    url: { type: String, required: false }
+    url: { type: String, required: false },
+    caption: { type: String, required: false }
+
   }],
   videos: [{
-    url: { type: String, required: false }
+    url: { type: String, required: false },
+    caption: { type: String, required: false }
+
   }],
   comments: [{
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    comment: { type: String},
+    comment: { type: String },
     replies: [{
       user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-      comment: { type: String}
+      comment: { type: String }
     }]
   }],
   votes: [{
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     type: { type: String, enum: ['upvote', 'downvote']}
   }]
+}, {
+  timestamps: true
 });
 
 const Post = mongoose.model('Post', postModel);
