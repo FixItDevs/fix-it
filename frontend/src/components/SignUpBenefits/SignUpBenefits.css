@@ -1,7 +1,8 @@
-.sign-up-box {
+.sign-up-benefits-container {
   display: flex;
   height: 93vh;
   background-color: var(--primary-background);
   flex: 1 2 250px;
   padding: 20px 30px;
+  border-left: 1px solid #ccc;
 ;}

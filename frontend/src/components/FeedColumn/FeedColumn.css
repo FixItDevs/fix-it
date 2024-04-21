@@ -4,8 +4,6 @@
   min-height: 93vh;
   background-color: var(--primary-background);
   flex: 3 3 900px;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
   padding: 20px 30px;
 }
 

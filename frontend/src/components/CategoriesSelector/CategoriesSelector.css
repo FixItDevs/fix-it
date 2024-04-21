@@ -4,4 +4,5 @@
   background-color: var(--primary-background);
   flex: 1 1 300px;
   padding: 20px 30px;
+  border-right: 1px solid #ccc;
 ;}

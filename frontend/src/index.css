@@ -16,3 +16,17 @@ body {
   font-size: 18px;
   color: #333;
 }
+
+/* RESPONSIVE CSS */
+
+@media (max-width: 1200px) {
+  .sign-up-benefits-container {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .category-selector-box {
+    display: none;
+  }
+}

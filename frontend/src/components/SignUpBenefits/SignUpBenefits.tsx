@@ -3,7 +3,7 @@ import './SignUpBenefits.css'
 
 const SignUpBenefits = () => {
   return (
-    <div className="sign-up-box">
+    <div className="sign-up-benefits-container">
       Hello
     </div>
   )
