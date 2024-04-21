@@ -3,6 +3,11 @@
 :root {
   --primary-background: #f5fffa;
   --secondary-background: #579c7c;
+
+  --grey-200: #eee;
+  --grey-300: #ddd;
+  --grey-400: #ccc;
+  --grey-500: #999;
 }
 
 * {

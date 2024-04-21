@@ -30,3 +30,8 @@
   font-size: 1.3rem;
   cursor: pointer;
 }
+
+.feed-divider {
+  height: 1px;
+  background-color: var(--grey-300);
+}

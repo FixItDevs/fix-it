@@ -1,14 +1,6 @@
 import "./CategoriesSelectorList.css";
 import CategorySelectorItem from "../CategorySelectorItem/CategorySelectorItem";
-const categories = [
-  "Plumbing",
-  "Electrical",
-  "Appliances",
-  "Decorating",
-  "Roofing",
-  "Carpentry",
-  "Metalwork"
-];
+import { categoriesList } from "../../data/categoriesList";
 
 const CategoriesSelectorList = () => {
   return (
@@ -17,8 +9,11 @@ const CategoriesSelectorList = () => {
         <h1 className="categories-title">Trending Topics</h1>
       </div>
       <div className="categories-list-box">
-        {categories.map((category) => (
+        {categoriesList.map((category) => (
+          <>
           <CategorySelectorItem key={category}>{category}</CategorySelectorItem>
+          <div className="feed-divider"></div>
+          </>
         ))}
       </div>
     </div>
