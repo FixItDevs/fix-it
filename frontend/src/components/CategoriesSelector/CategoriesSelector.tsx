@@ -1,9 +1,9 @@
-// import React from 'react'
+import "./CategoriesSelector.css"
 
 const CategoriesSelector = () => {
   return (
-    <div>
-      
+    <div className="category-selector-box">
+      Hello
     </div>
   )
 }

@@ -1,0 +1,6 @@
+.sign-up-box {
+  height: 93vh;
+  /* width: 20vw; */
+  background-color: lightblue;
+  flex: 1 2 250px;
+;}

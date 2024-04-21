@@ -1,0 +1,6 @@
+.feed-box {
+  height: 93vh;
+  /* width: 20vw; */
+  background-color: grey;
+  flex: 3 3 900px;
+;}
