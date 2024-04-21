@@ -19,4 +19,5 @@ const FeedItem: React.FC<FeedItemProps> = ({ item }) => {
   );
 };
 
+
 export default FeedItem;
