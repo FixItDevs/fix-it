@@ -11,8 +11,8 @@ const CategoriesSelectorList = () => {
       <div className="categories-list-box">
         {categoriesList.map((category) => (
           <div key={category}>
-          <CategorySelectorItem >{category}</CategorySelectorItem>
-          <div className="feed-divider"></div>
+            <CategorySelectorItem>{category}</CategorySelectorItem>
+            <div className="feed-divider"></div>
           </div>
         ))}
       </div>

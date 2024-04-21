@@ -1,16 +1,14 @@
-import './CategorySelectorItem.css'
-import React from 'react'
+import "./CategorySelectorItem.css";
+import React from "react";
 
 interface CategorySelectorItemProps {
-  children: string
+  children: string;
 }
 
-const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({children}) => {
-  return (
-    <div className="category-item">
-      {children}
-    </div>
-  )
-}
+const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
+  children
+}) => {
+  return <div className="category-item">{children}</div>;
+};
 
-export default CategorySelectorItem
+export default CategorySelectorItem;
