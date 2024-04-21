@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema({
   user: {
@@ -15,9 +15,7 @@ const postSchema = new mongoose.Schema({
     subTag: String
   }],
   images: [{
-    url: { type: String, required: false },
-    title: { type: String, required: false },
-    altText: { type: String, required: false }
+    url: { type: String, required: false }
   }],
   videos: [{
     url: { type: String, required: false }
