@@ -1,9 +1,10 @@
 import "./CategoriesSelector.css"
+import Button from '@mui/material/Button';
 
 const CategoriesSelector = () => {
   return (
     <div className="category-selector-box">
-      Hello
+      {/* <Button variant="contained">Trending Topics</Button> */}
     </div>
   )
 }
