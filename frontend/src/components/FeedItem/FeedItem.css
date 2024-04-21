@@ -1,0 +1,10 @@
+.feed-item-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 20px auto 10px;
+}
+
+.feed-item-body {
+  font-size: 1.1rem;
+  font-weight: 300;
+}

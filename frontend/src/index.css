@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --primary-background: #f5fffa;
+  --secondary-background: #579c7c;
+
+  --grey-200: #eee;
+  --grey-300: #ddd;
+  --grey-400: #ccc;
+  --grey-500: #999;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
+/* RESPONSIVE CSS */
+
+@media (max-width: 1200px) {
+  .sign-up-benefits-container {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .category-selector-box {
+    display: none;
+  }
+}
