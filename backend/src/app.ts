@@ -32,15 +32,7 @@ app.use(express.json());
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
   try {
-    res.status(200).json({message: 'Server is running!!!!'});
-  } catch (error: any) {
-    next(error);
-  }
-});
-
-app.get('/api', (req: Request, res: Response, next: NextFunction) => {
-  try {
-    res.status(200).json({message: 'Server is running!!'});
+    res.status(200).json({message: 'Server is running'});
   } catch (error: any) {
     next(error);
   }
