@@ -10,10 +10,10 @@ const CategoriesSelectorList = () => {
       </div>
       <div className="categories-list-box">
         {categoriesList.map((category) => (
-          <>
-          <CategorySelectorItem key={category}>{category}</CategorySelectorItem>
+          <div key={category}>
+          <CategorySelectorItem >{category}</CategorySelectorItem>
           <div className="feed-divider"></div>
-          </>
+          </div>
         ))}
       </div>
     </div>

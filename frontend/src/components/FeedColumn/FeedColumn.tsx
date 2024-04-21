@@ -9,11 +9,11 @@ const FeedColumn = () => {
 
       {/* 👇🏻 mapped post feed */}
       <div className="main-feed-container">
-        {dummyFeedData.map((item, index) => (
-          <>
-            <FeedItem key={index} item={item} />
+        {dummyFeedData.map((item) => (
+          <div key={item.title}>
+            <FeedItem item={item} />
             <div className="feed-divider"></div>
-          </>
+          </div>
         ))}
       </div>
     </div>
