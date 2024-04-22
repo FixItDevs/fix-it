@@ -19,6 +19,7 @@ const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
 
       const posts = await response.json();
       setFeedPosts(posts);
+      console.log(feedPosts);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -35,11 +36,15 @@ const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
       <div className="main-feed-container">
         {feedPosts.map((post: PostProps) => (
           <div key={post.postId}>
-            <PostItem
+              <PostItem
               postId={post.postId}
               user={post.user}
               postText={post.postText}
               tags={post.tags}
+              comments={post.comments}
+              images={post.images}
+              videos={post.videos}
+              votes={post.votes}
             />
             <div className="feed-divider"></div>
           </div>

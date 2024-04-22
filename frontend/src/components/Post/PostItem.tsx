@@ -1,6 +1,8 @@
 import React from "react";
 import "./PostItem.css";
 import { PostProps } from "../../types/post.types";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -11,6 +13,11 @@ const PostItem: React.FC<PostProps> = ({
   videos,
   votes
 }) => {
+
+  const renderVoteIcon = (voteType: string) => {
+    return voteType === 'upvote' ? <ThumbUpIcon/> : <ThumbDownIcon/>
+  }
+
   return (
     <div className="post">
       <h2 className="post-title">{postText.title}</h2>
@@ -45,7 +52,7 @@ const PostItem: React.FC<PostProps> = ({
       <div>
         {votes?.map((vote, index) => (
           <div key={index}>
-            <p>{vote.type}</p>
+            {renderVoteIcon(vote.type)}
           </div>
         ))}
       </div>
