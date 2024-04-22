@@ -23,16 +23,21 @@ export const addUser = async (req: Request, res: Response, next: NextFunction) =
   }
 
   try {
-    const user = new User({
-      username,
-      avatar,
-      email,
-      password
-    });
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
 
-    const newUser = await user.save();
-    res.status(201).json(newUser);
+    if (existingUser) {
+      if (existingUser.username === username) {
+        return res.status(400).json({ message: 'Username already exists.' });
+      } else {
+        return res.status(400).json({ message: 'Email already exists.' });
+      }
+    }
+
+    const newUser = new User({ username, avatar, email, password });
+    await newUser.save();
+
+    return res.status(201).json(newUser);
   } catch (error) {
-    next(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
   }
 }
