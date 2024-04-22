@@ -14,12 +14,12 @@ export interface Post {
 export interface Comment {
   user: string;
   comment: string;
-  replies: [Reply];
+  replies: Reply[];
 }
 
 export interface Tags {
-  mainTags: [string];
-  subTag: [string];
+  mainTags: string[];
+  subTag: string[];
 }
 
 export interface Image {
@@ -42,8 +42,8 @@ export interface PostProps {
   user: User;
   postText: Post;
   tags: Tags;
-  comments?: [Comment];
-  images?: [Image];
-  videos?: [Video];
-  votes?: [Vote];
+  comments?: Comment[];
+  images?: Image[];
+  videos?: Video[];
+  votes?: Vote[];
 }

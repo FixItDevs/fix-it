@@ -1,8 +1,8 @@
 import React from "react";
 import "./PostItem.css";
-import { PostProps } from "../../types/post.types";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import { PostProps, Vote } from "../../types/post.types";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -13,8 +13,41 @@ const PostItem: React.FC<PostProps> = ({
   videos,
   votes
 }) => {
-  const renderVoteIcon = (voteType: string) => {
-    return voteType === "upvote" ? <ThumbUpIcon /> : <ThumbDownIcon />;
+  const renderVoteIcons = (votes: Vote[]) => {
+    let upvoteCount = 0;
+    let downvoteCount = 0;
+
+    votes.forEach((vote) => {
+      if (vote.type === "upvote") {
+        upvoteCount++;
+      } else if (vote.type === "downvote") {
+        downvoteCount++;
+      }
+    });
+
+    if (upvoteCount > downvoteCount) {
+      return (
+        <>
+          <div>
+            <ThumbUpOffAltIcon />
+            <p>{upvoteCount}</p>
+            <ThumbDownOffAltIcon />
+          </div>
+        </>
+      );
+    } else if (downvoteCount > upvoteCount) {
+      return (
+        <>
+          <div>
+            <ThumbUpOffAltIcon />
+            <ThumbDownOffAltIcon />
+            <p>{downvoteCount}</p>
+          </div>
+        </>
+      );
+    } else {
+      return null;
+    }
   };
 
   return (
@@ -48,11 +81,7 @@ const PostItem: React.FC<PostProps> = ({
           </div>
         ))}
       </div>
-      <div>
-        {votes?.map((vote, index) => (
-          <div key={index}>{renderVoteIcon(vote.type)}</div>
-        ))}
-      </div>
+      <div>{renderVoteIcons(votes || [])}</div>
     </div>
   );
 };
