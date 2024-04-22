@@ -1,10 +1,10 @@
 import React from "react";
 import "./PostItem.css";
 import { PostProps, Vote } from "../../types/post.types";
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Button from "@mui/material/Button";
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -20,11 +20,15 @@ const PostItem: React.FC<PostProps> = ({
     let downvoteCount = 0;
 
     votes.forEach((vote) => {
-      vote.type === "upvote" ? upvoteCount++ : downvoteCount ++;
+      vote.type === "upvote" ? upvoteCount++ : downvoteCount++;
     });
 
     return (
-      <ButtonGroup disableElevation variant="contained" aria-label="Disabled button group">
+      <ButtonGroup
+        disableElevation
+        variant="contained"
+        aria-label="Disabled button group"
+      >
         <Button>
           <ThumbUpOffAltIcon />
           {upvoteCount > downvoteCount && <span>{upvoteCount}</span>}
@@ -68,9 +72,7 @@ const PostItem: React.FC<PostProps> = ({
           </div>
         ))}
       </div>
-      <div>
-        {renderVoteIcons(votes || [])}
-      </div>
+      <div>{renderVoteIcons(votes || [])}</div>
     </div>
   );
 };
