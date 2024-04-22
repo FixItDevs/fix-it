@@ -1,4 +1,4 @@
-const postSeedData = [
+export const postSeedData = [
   {
     user: '60b0f7c8b3e1f3b3f8b3b1b1',
     postText: {
