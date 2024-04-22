@@ -1,8 +1,10 @@
 import React from "react";
 import "./PostItem.css";
 import { PostProps, Vote } from "../../types/post.types";
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -18,36 +20,21 @@ const PostItem: React.FC<PostProps> = ({
     let downvoteCount = 0;
 
     votes.forEach((vote) => {
-      if (vote.type === "upvote") {
-        upvoteCount++;
-      } else if (vote.type === "downvote") {
-        downvoteCount++;
-      }
+      vote.type === "upvote" ? upvoteCount++ : downvoteCount ++;
     });
 
-    if (upvoteCount > downvoteCount) {
-      return (
-        <>
-          <div>
-            <ThumbUpOffAltIcon />
-            <p>{upvoteCount}</p>
-            <ThumbDownOffAltIcon />
-          </div>
-        </>
-      );
-    } else if (downvoteCount > upvoteCount) {
-      return (
-        <>
-          <div>
-            <ThumbUpOffAltIcon />
-            <ThumbDownOffAltIcon />
-            <p>{downvoteCount}</p>
-          </div>
-        </>
-      );
-    } else {
-      return null;
-    }
+    return (
+      <ButtonGroup disableElevation variant="contained" aria-label="Disabled button group">
+        <Button>
+          <ThumbUpOffAltIcon />
+          {upvoteCount > downvoteCount && <span>{upvoteCount}</span>}
+        </Button>
+        <Button>
+          <ThumbDownOffAltIcon />
+          {downvoteCount > upvoteCount && <span>{downvoteCount}</span>}
+        </Button>
+      </ButtonGroup>
+    );
   };
 
   return (
@@ -81,7 +68,9 @@ const PostItem: React.FC<PostProps> = ({
           </div>
         ))}
       </div>
-      <div>{renderVoteIcons(votes || [])}</div>
+      <div>
+        {renderVoteIcons(votes || [])}
+      </div>
     </div>
   );
 };
