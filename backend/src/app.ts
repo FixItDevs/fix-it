@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import mongoose from "mongoose";
 import cors from "cors"
 import postRoutes from "./routes/postRoutes";
+import userRoutes from "./routes/userRoutes"
 
 dotenv.config();
 
@@ -39,6 +40,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use('/api/v1.0/posts', postRoutes);
+app.use('/api/v1.0/users', userRoutes);
 
 app.use((error: any, req: Request, res: Response, next: NextFunction) => {
   const status = error.statusCode || 500;
