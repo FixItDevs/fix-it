@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const postModel = new mongoose.Schema({
-  // user: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'User',
-  //   required: true
-  // },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   postText: { 
     title: { type: String},
     description: { type: String }
