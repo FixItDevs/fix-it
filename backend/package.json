@@ -12,9 +12,9 @@
     "seed:posts:dev": "MONGO_DBNAME='fixit_DEV' node dist/seeds/seedPosts.js",
     "seed:posts:test": "MONGO_DBNAME='fixit_TEST' node dist/seeds/seedPosts.js",
     "seed:posts:prod": "MONGO_DBNAME='fixit_PROD' node dist/seeds/seedPosts.js",
-    "seed:users:dev": "MONGO_DBNAME='fixit_DEV' node dist/seeds/seedPosts.js",
-    "seed:users:test": "MONGO_DBNAME='fixit_TEST' node dist/seeds/seedPosts.js",
-    "seed:users:prod": "MONGO_DBNAME='fixit_PROD' node dist/seeds/seedPosts.js"
+    "seed:users:dev": "MONGO_DBNAME='fixit_DEV' node dist/seeds/seedUsers.js",
+    "seed:users:test": "MONGO_DBNAME='fixit_TEST' node dist/seeds/seedUsers.js",
+    "seed:users:prod": "MONGO_DBNAME='fixit_PROD' node dist/seeds/seedUsers.js"
   },
   "keywords": [],
   "author": "",
