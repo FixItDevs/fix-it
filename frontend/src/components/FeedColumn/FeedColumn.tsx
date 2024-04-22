@@ -5,28 +5,27 @@ import { useEffect } from "react";
 import { PostProps } from "../Post/PostItem";
 
 interface FeedColumnProps {
-  posts: PostProps
+  posts: PostProps;
 }
 
-const FeedColumn: React.FC<FeedColumnProps>= ({ posts }) => {
-
+const FeedColumn: React.FC<FeedColumnProps> = ({ posts }) => {
   async function getPosts() {
     try {
-      const response = await fetch('http://localhost:3000/api/v1.0/posts');
+      const response = await fetch("http://localhost:3000/api/v1.0/posts");
       if (!response.ok) {
-        throw new Error('Error in network response');
+        throw new Error("Error in network response");
       }
-      
+
       const posts = await response.json();
       console.log(posts);
     } catch (error) {
-      console.error('Error fetching posts:', error);
+      console.error("Error fetching posts:", error);
     }
   }
 
   useEffect(() => {
     getPosts();
-  }, [posts])
+  }, [posts]);
 
   return (
     <div className="feed-col-container">
