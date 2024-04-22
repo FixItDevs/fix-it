@@ -8,3 +8,10 @@
 .category-sub.open {
   max-height: 1000px; 
 }
+
+.category-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}

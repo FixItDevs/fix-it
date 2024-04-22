@@ -96,17 +96,17 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
 
   return (
     <div className="category-item">
-      <h3
-        className="category-main"
-        onClick={() => handleCategoryClick(category.main)}
-      >
-        {category.main} {category.icon}{" "}
-        {isOpen ? (
-          <KeyboardArrowDownIcon />
-        ) : (
-          <KeyboardArrowRightIcon />
-        )}{" "}
-      </h3>
+      <div className="category-main-container">
+        <h3
+          className="category-title"
+          onClick={() => handleCategoryClick(category.main)}
+        >
+          {category.main} {category.icon}{" "}
+        </h3>
+        <div className="category-switch" onClick={() => handleCategoryClick(category.main)}>
+          {isOpen ? <KeyboardArrowDownIcon  /> : <KeyboardArrowRightIcon />}{" "}
+        </div>
+      </div>
       <div className={`category-sub ${isOpen ? "open" : ""}`}>
         {category.sub.map((subCategory) => (
           <p key={subCategory} className="category-sub-item">
