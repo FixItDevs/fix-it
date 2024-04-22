@@ -1,6 +1,6 @@
 import "./FeedColumn.css";
 import { dummyFeedData } from "../../data/dummyFeedData";
-import FeedItem from "../FeedItem/FeedItem";
+import PostItem from "../Post/PostItem";
 
 const FeedColumn = () => {
   return (
@@ -11,7 +11,7 @@ const FeedColumn = () => {
       <div className="main-feed-container">
         {dummyFeedData.map((post) => (
           <div key={post.title}>
-            <FeedItem post={post} />
+            <PostItem post={post} />
             <div className="feed-divider"></div>
           </div>
         ))}
