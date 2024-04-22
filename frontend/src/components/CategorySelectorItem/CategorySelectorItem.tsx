@@ -96,11 +96,11 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
 
   const handleSubCategoryClick = (subCategory: string) => {
     console.log("Subcategory clicked: ", subCategory);
-  }
+  };
 
   const handleMainCategoryClick = (mainCategory: string) => {
     console.log("Main category clicked: ", mainCategory);
-  }
+  };
 
   return (
     <div className="category-item">
@@ -109,15 +109,25 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
           className="category-title"
           onClick={() => handleMainCategoryClick(category.main)}
         >
-          {category.main} {category.icon}{" "}
+          <span className="main-cat-text">{category.main}</span>
+          <span className="main-cat-icon">{category.icon}</span>
         </h3>
-        <div className="category-switch" onClick={() => handleCategoryOpenAndClose(category.main)}>
-          {isOpen ? <KeyboardArrowDownIcon  /> : <KeyboardArrowRightIcon />}{" "}
+        <div
+          className="category-switch"
+          onClick={() => handleCategoryOpenAndClose(category.main)}
+        >
+          {isOpen ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}{" "}
         </div>
       </div>
       <div className={`category-sub ${isOpen ? "open" : ""}`}>
         {category.sub.map((subCategory) => (
-          <p key={subCategory} className="category-sub-item" onClick={() => handleSubCategoryClick(`${category.main}: ${subCategory}`)}>
+          <p
+            key={subCategory}
+            className="category-sub-item"
+            onClick={() =>
+              handleSubCategoryClick(`${category.main}: ${subCategory}`)
+            }
+          >
             {subCategory}
           </p>
         ))}
