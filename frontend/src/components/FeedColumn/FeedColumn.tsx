@@ -8,7 +8,7 @@ interface FeedColumnProps {
 }
 
 const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
-  const [feedPosts, setFeedPosts] = useState([])
+  const [feedPosts, setFeedPosts] = useState([]);
 
   async function getPosts() {
     try {
@@ -18,7 +18,7 @@ const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
       }
 
       const posts = await response.json();
-      setFeedPosts(posts)
+      setFeedPosts(posts);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -35,7 +35,7 @@ const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
       <div className="main-feed-container">
         {feedPosts.map((post: PostProps) => (
           <div key={post.postId}>
-            <PostItem 
+            <PostItem
               postId={post.postId}
               user={post.user}
               postText={post.postText}

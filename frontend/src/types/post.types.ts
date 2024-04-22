@@ -3,7 +3,7 @@ import { User } from "./user.types";
 export interface Reply {
   user: string;
   _id: string;
-  comment: string
+  comment: string;
 }
 
 export interface Post {
@@ -12,7 +12,7 @@ export interface Post {
 }
 
 export interface Comment {
-  user: string,
+  user: string;
   comment: string;
   replies: [Reply];
 }
@@ -34,7 +34,7 @@ export interface Video {
 
 export interface Vote {
   user: User;
-  type: 'upvote' | 'downvote'
+  type: "upvote" | "downvote";
 }
 
 export interface PostProps {
