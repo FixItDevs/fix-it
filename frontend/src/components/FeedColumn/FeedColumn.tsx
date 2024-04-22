@@ -1,14 +1,15 @@
 import "./FeedColumn.css";
-import { dummyFeedData } from "../../data/dummyFeedData";
 import PostItem from "../Post/PostItem";
-import { useEffect } from "react";
-import { PostProps } from "../Post/PostItem";
+import { useEffect, useState } from "react";
+import { PostProps } from "../../types/post.types";
 
 interface FeedColumnProps {
   posts: PostProps;
 }
 
-const FeedColumn: React.FC<FeedColumnProps> = ({ posts }) => {
+const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
+  const [feedPosts, setFeedPosts] = useState([])
+
   async function getPosts() {
     try {
       const response = await fetch("http://localhost:3000/api/v1.0/posts");
@@ -17,7 +18,7 @@ const FeedColumn: React.FC<FeedColumnProps> = ({ posts }) => {
       }
 
       const posts = await response.json();
-      console.log(posts);
+      setFeedPosts(posts)
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -31,11 +32,15 @@ const FeedColumn: React.FC<FeedColumnProps> = ({ posts }) => {
     <div className="feed-col-container">
       <h1 className="feed-title">I am a dummy title by the way</h1>
 
-      {/* 👇🏻 mapped post feed */}
       <div className="main-feed-container">
-        {dummyFeedData.map((post) => (
-          <div key={post.title}>
-            <PostItem post={post} />
+        {feedPosts.map((post: PostProps) => (
+          <div key={post.postId}>
+            <PostItem 
+              postId={post.postId}
+              user={post.user}
+              postText={post.postText}
+              tags={post.tags}
+            />
             <div className="feed-divider"></div>
           </div>
         ))}

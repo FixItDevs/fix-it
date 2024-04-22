@@ -1,20 +1,25 @@
 import React from "react";
 import "./PostItem.css";
+import { PostProps } from '../../types/post.types'
 
-export interface Post {
-  title: string;
-  body: string;
-}
-
-export interface PostProps {
-  post: Post;
-}
-
-const PostItem: React.FC<PostProps> = ({ post }) => {
+const PostItem: React.FC<PostProps> = ({ 
+  user, postText, tags, comments, images, videos, votes
+ }) => {
   return (
     <div className="post">
-      <h2 className="post-title">{post.title}</h2>
-      <p className="post-body">{post.body}</p>
+      <h2 className="post-title">{postText.title}</h2>
+      <p className="post-description">{postText.description}</p>
+      <p className="post-main-tags">{tags.mainTags}</p>
+      <p className="post-sub-tag">{tags.subTag}</p>
+      <p className="post-user">{user.username}</p>
+      <div>
+      {comments?.map((comment, index) => (
+          <div key={index}>
+            <p>{comment.comment}</p>
+            <p>{comment.user}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
