@@ -1,12 +1,12 @@
 import React from "react";
 import "./PostItem.css";
 
-interface Post {
+export interface Post {
   title: string;
   body: string;
 }
 
-interface PostProps {
+export interface PostProps {
   post: Post;
 }
 
