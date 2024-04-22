@@ -36,7 +36,7 @@ const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
       <div className="main-feed-container">
         {feedPosts.map((post: PostProps) => (
           <div key={post.postId}>
-              <PostItem
+            <PostItem
               postId={post.postId}
               user={post.user}
               postText={post.postText}
