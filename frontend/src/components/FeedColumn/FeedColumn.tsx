@@ -9,9 +9,9 @@ const FeedColumn = () => {
 
       {/* 👇🏻 mapped post feed */}
       <div className="main-feed-container">
-        {dummyFeedData.map((item) => (
-          <div key={item.title}>
-            <FeedItem item={item} />
+        {dummyFeedData.map((post) => (
+          <div key={post.title}>
+            <FeedItem post={post} />
             <div className="feed-divider"></div>
           </div>
         ))}

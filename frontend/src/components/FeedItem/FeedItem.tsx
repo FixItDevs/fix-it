@@ -1,20 +1,20 @@
 import React from "react";
 import "./FeedItem.css";
 
-interface Item {
+interface Post {
   title: string;
   body: string;
 }
 
 interface FeedItemProps {
-  item: Item;
+  post: Post;
 }
 
-const FeedItem: React.FC<FeedItemProps> = ({ item }) => {
+const FeedItem: React.FC<FeedItemProps> = ({ post }) => {
   return (
     <div className="feed-item">
-      <h2 className="feed-item-title">{item.title}</h2>
-      <p className="feed-item-body">{item.body}</p>
+      <h2 className="feed-item-title">{post.title}</h2>
+      <p className="feed-item-body">{post.body}</p>
     </div>
   );
 };
