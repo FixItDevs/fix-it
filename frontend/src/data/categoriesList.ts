@@ -26,5 +26,9 @@ export const categoriesList = [
   {
     main: "Metalwork",
     sub: ["Welding", "Cutting", "Blacksmithing", "Forging", "Casting", "Polishing", "Grinding", "Drilling", "Tapping", "Bending", "Soldering", "Riveting"]
+  },
+  {
+    main: "Gardening",
+    sub: ["Lawn", "Hedge", "Tree", "Shrub", "Flower", "Vegetable", "Fruit", "Greenhouse", "Pond", "Water Feature", "Patio", "Decking"]
   }
 ];
