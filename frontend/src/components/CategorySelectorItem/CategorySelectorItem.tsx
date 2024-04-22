@@ -83,7 +83,7 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
     setIsOpen(expandedCategories.includes(category.main));
   }, [expandedCategories, category.main]);
 
-  const handleCategoryClick = (category: string) => {
+  const handleCategoryOpenAndClose = (category: string) => {
     console.log("Category clicked: ", category);
     if (expandedCategories.includes(category)) {
       setExpandedCategories(
@@ -94,22 +94,30 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
     }
   };
 
+  const handleSubCategoryClick = (subCategory: string) => {
+    console.log("Subcategory clicked: ", subCategory);
+  }
+
+  const handleMainCategoryClick = (mainCategory: string) => {
+    console.log("Main category clicked: ", mainCategory);
+  }
+
   return (
     <div className="category-item">
       <div className="category-main-container">
         <h3
           className="category-title"
-          onClick={() => handleCategoryClick(category.main)}
+          onClick={() => handleMainCategoryClick(category.main)}
         >
           {category.main} {category.icon}{" "}
         </h3>
-        <div className="category-switch" onClick={() => handleCategoryClick(category.main)}>
+        <div className="category-switch" onClick={() => handleCategoryOpenAndClose(category.main)}>
           {isOpen ? <KeyboardArrowDownIcon  /> : <KeyboardArrowRightIcon />}{" "}
         </div>
       </div>
       <div className={`category-sub ${isOpen ? "open" : ""}`}>
         {category.sub.map((subCategory) => (
-          <p key={subCategory} className="category-sub-item">
+          <p key={subCategory} className="category-sub-item" onClick={() => handleSubCategoryClick(`${category.main}: ${subCategory}`)}>
             {subCategory}
           </p>
         ))}
