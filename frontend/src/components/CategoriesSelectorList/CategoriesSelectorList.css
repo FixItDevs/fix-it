@@ -8,15 +8,19 @@
   border-right: 1px solid #ccc;
 }
 .categories-title-box {
-  padding: 5px 10px;
+  padding: 8px 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #cef0d5;
   border-radius: 5px;
-  border: 1px solid #579c7c;
+  border: 1px solid var(--grey-300);
   font-size: 0.8rem;
   margin: 10px auto 20px;
+  transition: background-color 0.3s ease;
+}
+
+.categories-title-box:hover {
+  background-color: var(--cold-blue-200);
 }
 
 .categories-list-box {

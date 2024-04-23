@@ -24,35 +24,50 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
     setIsOpen(openCategories.includes(category.main));
   }, [openCategories, category.main]);
 
-  const handleCategoryClick = (category: string) => {
-    console.log("Category clicked: ", category);
+  const handleCategoryOpener = (category: string) => {
     if (openCategories.includes(category)) {
-      setOpenCategories(
-        openCategories.filter((cat) => cat !== category)
-      );
+      console.log("Category closed: ", category);
+      setOpenCategories(openCategories.filter((cat) => cat !== category));
     } else {
+      console.log("Category opened: ", category);
       setOpenCategories([...openCategories, category]);
     }
   };
 
+  const handleSelectMainCategory = (category: string) => {
+    console.log("Main category selected: ", category);
+  };
+
+  const handleSelectSubCategory = (subCategory: string) => {
+    console.log("Sub category selected: ", `${category.main}: ${subCategory}`);
+  };
+
   return (
     <div className="category-item">
-      <h3
-        className="category-main"
-        onClick={() => handleCategoryClick(category.main)}
-      >
-        {category.main} {category.icon}{" "}
-        {isOpen ? (
-          <KeyboardArrowDownIcon />
-        ) : (
-          <KeyboardArrowRightIcon />
-        )}{" "}
+      <h3 className="category-main-container">
+        <div
+          className="category-main-label"
+          onClick={() => handleSelectMainCategory(category.main)}
+        >
+          <span className="category-main-name">{category.main}</span>
+          <span className="category-main-icon">{category.icon}</span>
+        </div>
+        <div
+          className="category-main-opener-arrow"
+          onClick={() => handleCategoryOpener(category.main)}
+        >
+          {isOpen ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}{" "}
+        </div>
       </h3>
       <div className={`category-sub ${isOpen ? "open" : ""}`}>
         {category.sub.map((subCategory) => (
-          <p key={subCategory} className="category-sub-item">
-            {subCategory}
-          </p>
+          <div
+            key={subCategory}
+            className="category-sub-item-container"
+            onClick={() => handleSelectSubCategory(subCategory)}
+          >
+            <p className="category-sub-item">{subCategory}</p>
+          </div>
         ))}
       </div>
     </div>
