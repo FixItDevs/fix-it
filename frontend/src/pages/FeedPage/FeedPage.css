@@ -3,6 +3,7 @@
 }
 
 .category-selector-wrapper {
+  padding-top: var(--nav-height);
   flex: 1 1 300px;
   height: 100vh; 
   overflow-y: scroll;
@@ -11,11 +12,11 @@
 }
 
 .category-selector-wrapper:hover {
-  overflow-y: auto;
-  scrollbar-color: initial initial;
+  scrollbar-color: var(--grey-400) var(--grey-200);
 }
 
 .feed-column-wrapper {
+  padding-top: var(--nav-height);
   flex: 3 3 900px;
   height: 100vh; 
   overflow-y: scroll;
@@ -24,11 +25,11 @@
 }
 
 .feed-column-wrapper:hover {
-  overflow-y: auto;
-  scrollbar-color: initial initial;
+  scrollbar-color: var(--grey-400) var(--grey-200);
 }
 
 .signup-benefits-wrapper {
+  padding-top: var(--nav-height);
   flex: 1 1 250px;
   height: 100vh; 
   overflow-y: scroll;
@@ -37,19 +38,5 @@
 }
 
 .signup-benefits-wrapper:hover {
-  overflow-y: auto;
-  scrollbar-color: initial initial;
-}
-
-::-webkit-scrollbar {
-  width: 8px; /* Set the width of the scrollbar */
-}
-
-::-webkit-scrollbar-track {
-  background: transparent; /* Make scrollbar track transparent */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2); /* Set the color of the scrollbar thumb */
-  border-radius: 4px; /* Set the border radius of the scrollbar thumb */
+  scrollbar-color: var(--grey-400) var(--grey-200);
 }
