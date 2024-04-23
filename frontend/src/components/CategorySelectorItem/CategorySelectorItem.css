@@ -9,23 +9,22 @@
   max-height: 1000px; 
 }
 
-.category-main-container {
+/* .category-main-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
   margin-bottom: -10px;
-}
+} */
 
-.category-title {
+/* .category-title {
   display: flex;
   align-items: center; 
-  /* margin-bottom: -10px; */
-}
+} */
 
-.main-cat-icon {
+/* .main-cat-icon {
   margin-left: 10px;
   margin-bottom: -6px;
   vertical-align: middle;
   font-size: medium;
-}
+} */

@@ -1,10 +1,10 @@
 import "./CategoriesSelectorList.css";
 import { useState } from "react";
 import CategorySelectorItem from "../CategorySelectorItem/CategorySelectorItem";
-import { categoriesList } from "../../data/categoriesList";
+import { categoriesList } from "../../data/categoriesListData";
 
 const CategoriesSelectorList = () => {
-  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+  const [openCategories, setOpenCategories] = useState<string[]>([]);
   // const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   return (
@@ -15,7 +15,7 @@ const CategoriesSelectorList = () => {
       <div className="categories-list-box">
         {categoriesList.map((category) => (
           <div key={category.main}>
-            <CategorySelectorItem category={category} expandedCategories={expandedCategories} setExpandedCategories={setExpandedCategories} />
+            <CategorySelectorItem category={category} openCategories={openCategories} setOpenCategories={setOpenCategories} />
             <div className="feed-divider"></div>
           </div>
         ))}

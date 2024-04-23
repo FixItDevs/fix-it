@@ -1,5 +1,5 @@
 import "./CategorySelectorItem.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
@@ -9,23 +9,29 @@ interface CategorySelectorItemProps {
     icon: JSX.Element;
     sub: string[];
   };
-  expandedCategories: string[];
-  setExpandedCategories: (categories: string[]) => void;
+  openCategories: string[];
+  setOpenCategories: (categories: string[]) => void;
 }
 
 const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
   category,
-  expandedCategories,
-  setExpandedCategories
+  openCategories,
+  setOpenCategories
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsOpen(openCategories.includes(category.main));
+  }, [openCategories, category.main]);
+
   const handleCategoryClick = (category: string) => {
     console.log("Category clicked: ", category);
-    if (expandedCategories.includes(category)) {
-      setExpandedCategories(
-        expandedCategories.filter((cat) => cat !== category)
+    if (openCategories.includes(category)) {
+      setOpenCategories(
+        openCategories.filter((cat) => cat !== category)
       );
     } else {
-      setExpandedCategories([...expandedCategories, category]);
+      setOpenCategories([...openCategories, category]);
     }
   };
 
@@ -36,24 +42,21 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
         onClick={() => handleCategoryClick(category.main)}
       >
         {category.main} {category.icon}{" "}
-        {expandedCategories.includes(category.main) ? (
+        {isOpen ? (
           <KeyboardArrowDownIcon />
         ) : (
           <KeyboardArrowRightIcon />
         )}{" "}
       </h3>
-      {expandedCategories.includes(category.main) && (
-        <div className="category-sub">
-          {category.sub.map((subCategory) => (
-            <p key={subCategory} className="category-sub-item">
-              {subCategory}
-            </p>
-          ))}
-        </div>
-      )}
+      <div className={`category-sub ${isOpen ? "open" : ""}`}>
+        {category.sub.map((subCategory) => (
+          <p key={subCategory} className="category-sub-item">
+            {subCategory}
+          </p>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default CategorySelectorItem;
-
