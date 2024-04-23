@@ -4,8 +4,8 @@
   min-height: 93vh;
   background-color: var(--primary-background);
   padding: 20px 30px;
-  border-right: 1px solid #ccc;
 }
+
 .categories-title-box {
   padding: 5px 10px;
   display: flex;
