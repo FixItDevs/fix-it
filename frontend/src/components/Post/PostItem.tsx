@@ -29,7 +29,7 @@ const PostItem: React.FC<PostProps> = ({
         variant="contained"
         aria-label="Disabled button group"
       >
-        <Button>
+        <Button color="primary">
           <ThumbUpOffAltIcon />
           {upvoteCount > downvoteCount && <span>{upvoteCount}</span>}
         </Button>
