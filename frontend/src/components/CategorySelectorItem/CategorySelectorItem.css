@@ -20,7 +20,7 @@
 .category-main-label {
   transition: background-color 0.3s ease;
   padding: 6px 12px;
-  border-radius: 15px;
+  border-radius: 8px;
   display: flex;
   align-items: center; 
 }
@@ -33,6 +33,10 @@
   margin-left: 10px;
   margin-bottom: -6px;
   vertical-align: middle;
+}
+
+.category-main-name {
+  font-size: 1.2rem;
 }
 
 .category-main-icon:hover {
@@ -55,8 +59,9 @@
 
 .category-sub-item {
   padding: 3px 8px; 
-  border-radius: 15px;
+  border-radius: 5px;
   display: inline-block; 
+  font-size: 1.1rem;
 }
 
 .category-sub-item:hover {
