@@ -7,20 +7,19 @@ import axios from "axios";
 const FeedColumn: React.FC<PostProps> = () => {
   const [feedPosts, setFeedPosts] = useState<PostProps[]>([]);
 
-    async function getPosts() {
-      try {
-        const response = await axios.get("http://localhost:3000/api/v1.0/posts");
-        if (response.status !== 200) {
-          throw new Error("Error in network response");
-        }
-    
-        const posts = response.data;
-        setFeedPosts(posts);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
+  async function getPosts() {
+    try {
+      const response = await axios.get("http://localhost:3000/api/v1.0/posts");
+      if (response.status !== 200) {
+        throw new Error("Error in network response");
       }
+
+      const posts = response.data;
+      setFeedPosts(posts);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
     }
-    
+  }
 
   useEffect(() => {
     getPosts();
