@@ -7,7 +7,7 @@ interface FeedColumnProps {
   posts: PostProps;
 }
 
-const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
+const FeedColumn: React.FC<FeedColumnProps & PostProps> = () => {
   const [feedPosts, setFeedPosts] = useState([]);
 
   async function getPosts() {
@@ -27,7 +27,7 @@ const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
 
   useEffect(() => {
     getPosts();
-  }, [posts]);
+  });
 
   return (
     <div className="feed-col-container">
