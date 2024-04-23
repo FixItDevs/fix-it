@@ -3,12 +3,8 @@ import PostItem from "../Post/PostItem";
 import { useEffect, useState } from "react";
 import { PostProps } from "../../types/post.types";
 
-interface FeedColumnProps {
-  posts: PostProps;
-}
-
-const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
-  const [feedPosts, setFeedPosts] = useState([]);
+const FeedColumn: React.FC<PostProps> = () => {
+  const [feedPosts, setFeedPosts] = useState<PostProps[]>([]);
 
   async function getPosts() {
     try {
@@ -19,7 +15,6 @@ const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
 
       const posts = await response.json();
       setFeedPosts(posts);
-      console.log(feedPosts);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -27,7 +22,7 @@ const FeedColumn: React.FC<FeedColumnProps & PostProps> = ({ posts }) => {
 
   useEffect(() => {
     getPosts();
-  }, [posts]);
+  }, []);
 
   return (
     <div className="feed-col-container">
