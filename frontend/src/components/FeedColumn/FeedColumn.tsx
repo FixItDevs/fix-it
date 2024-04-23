@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { PostProps } from "../../types/post.types";
 import axios from "axios";
 
-const FeedColumn: React.FC<PostProps> = () => {
+const FeedColumn = () => {
   const [feedPosts, setFeedPosts] = useState<PostProps[]>([]);
 
   async function getPosts() {
