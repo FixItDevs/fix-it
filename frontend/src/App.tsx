@@ -6,14 +6,13 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <BrowserRouter>
-      {/* <div className="app"> */}
-
-      <Navbar />
-      <div className="navbar-spacer"></div>
-      <Routes>
-        <Route path="/" element={<FeedPage />} />
-      </Routes>
-      {/* </div> */}
+      <div id="app">
+        <Navbar />
+        {/* <div className="navbar-spacer"></div> */}
+        <Routes>
+          <Route path="/" element={<FeedPage />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
