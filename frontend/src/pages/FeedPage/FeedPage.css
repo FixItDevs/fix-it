@@ -3,7 +3,6 @@
 }
 
 .category-selector-wrapper {
-  padding-top: var(--nav-height);
   flex: 1 1 300px;
   height: 100vh; 
   overflow-y: scroll;
@@ -16,7 +15,6 @@
 }
 
 .feed-column-wrapper {
-  padding-top: var(--nav-height);
   flex: 3 3 900px;
   height: 100vh; 
   overflow-y: scroll;
@@ -29,7 +27,6 @@
 }
 
 .signup-benefits-wrapper {
-  padding-top: var(--nav-height);
   flex: 1 1 250px;
   height: 100vh; 
   overflow-y: scroll;

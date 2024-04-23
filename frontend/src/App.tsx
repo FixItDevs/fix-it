@@ -9,6 +9,7 @@ function App() {
       {/* <div className="app"> */}
 
       <Navbar />
+      <div className="navbar-spacer"></div>
       <Routes>
         <Route path="/" element={<FeedPage />} />
       </Routes>
