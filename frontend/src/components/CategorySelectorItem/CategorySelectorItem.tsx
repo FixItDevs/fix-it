@@ -49,8 +49,8 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
           className="category-main-label"
           onClick={() => handleSelectMainCategory(category.main)}
         >
-          <span className="category-main-name">{category.main}</span>
           <span className="category-main-icon">{category.icon}</span>
+          <span className="category-main-name">{category.main}</span>
         </div>
         <div
           className="category-main-opener-arrow"

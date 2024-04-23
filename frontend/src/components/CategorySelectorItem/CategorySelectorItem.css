@@ -26,21 +26,21 @@
 }
 
 .category-main-label:hover {
-  background-color: var(--cold-blue-200);
+  background-color: var(--category-hover);
 }
 
 .category-main-icon {
-  margin-left: 10px;
   margin-bottom: -6px;
   vertical-align: middle;
 }
 
 .category-main-name {
+  margin-left: 10px;
   font-size: 1.2rem;
 }
 
 .category-main-icon:hover {
-  background-color: var(--cold-blue-200);
+  background-color: var(--category-hover);
 }
 
 .category-sub.open {
@@ -54,16 +54,16 @@
 }
 
 .category-main-opener-arrow:hover {
-  background-color: var(--cold-blue-200);
+  background-color: var(--category-hover);
 }
 
 .category-sub-item {
-  padding: 3px 8px; 
+  padding: 6px 12px; 
   border-radius: 5px;
-  display: inline-block; 
+  /* display: inline-block;  */
   font-size: 1.1rem;
 }
 
 .category-sub-item:hover {
-  background-color: var(--cold-blue-200);
+  background-color: var(--category-hover);
 }
