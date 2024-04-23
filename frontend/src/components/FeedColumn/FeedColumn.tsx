@@ -2,23 +2,25 @@ import "./FeedColumn.css";
 import PostItem from "../Post/PostItem";
 import { useEffect, useState } from "react";
 import { PostProps } from "../../types/post.types";
+import axios from "axios";
 
 const FeedColumn: React.FC<PostProps> = () => {
   const [feedPosts, setFeedPosts] = useState<PostProps[]>([]);
 
-  async function getPosts() {
-    try {
-      const response = await fetch("http://localhost:3000/api/v1.0/posts");
-      if (!response.ok) {
-        throw new Error("Error in network response");
+    async function getPosts() {
+      try {
+        const response = await axios.get("http://localhost:3000/api/v1.0/posts");
+        if (response.status !== 200) {
+          throw new Error("Error in network response");
+        }
+    
+        const posts = response.data;
+        setFeedPosts(posts);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
       }
-
-      const posts = await response.json();
-      setFeedPosts(posts);
-    } catch (error) {
-      console.error("Error fetching posts:", error);
     }
-  }
+    
 
   useEffect(() => {
     getPosts();
