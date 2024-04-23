@@ -4,12 +4,12 @@ import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<FeedPage />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<FeedPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
