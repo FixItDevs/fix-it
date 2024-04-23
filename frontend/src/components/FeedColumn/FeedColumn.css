@@ -3,8 +3,8 @@
   flex-direction: column;
   min-height: 93vh;
   background-color: var(--primary-background);
-  flex: 3 3 900px;
   padding: 20px 30px;
+  border-left: 1px solid #ccc;
 }
 
 .feed-title {

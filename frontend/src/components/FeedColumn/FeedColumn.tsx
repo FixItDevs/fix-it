@@ -1,17 +1,47 @@
 import "./FeedColumn.css";
-import { dummyFeedData } from "../../data/dummyFeedData";
-import FeedItem from "../FeedItem/FeedItem";
+import PostItem from "../Post/PostItem";
+import { useEffect, useState } from "react";
+import { PostProps } from "../../types/post.types";
+import axios from "axios";
 
-const FeedColumn = () => {
+const FeedColumn: React.FC<PostProps> = () => {
+  const [feedPosts, setFeedPosts] = useState<PostProps[]>([]);
+
+  async function getPosts() {
+    try {
+      const response = await axios.get("http://localhost:3000/api/v1.0/posts");
+      if (response.status !== 200) {
+        throw new Error("Error in network response");
+      }
+
+      const posts = response.data;
+      setFeedPosts(posts);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  }
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <div className="feed-col-container">
       <h1 className="feed-title">I am a dummy title by the way</h1>
 
-      {/* 👇🏻 mapped post feed */}
       <div className="main-feed-container">
-        {dummyFeedData.map((item) => (
-          <div key={item.title}>
-            <FeedItem item={item} />
+        {feedPosts.map((post: PostProps) => (
+          <div key={post.postId}>
+            <PostItem
+              postId={post.postId}
+              user={post.user}
+              postText={post.postText}
+              tags={post.tags}
+              comments={post.comments}
+              images={post.images}
+              videos={post.videos}
+              votes={post.votes}
+            />
             <div className="feed-divider"></div>
           </div>
         ))}
