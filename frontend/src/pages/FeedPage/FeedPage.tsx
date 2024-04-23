@@ -1,5 +1,6 @@
 // import React from 'react'
 import CategoriesSelectorList from "../../components/CategoriesSelectorList/CategoriesSelectorList";
+// import CategoriesSelectorList2 from "../../components/CategoriesSelectorList/CategoriesSelectorList";
 import SignUpBenefits from "../../components/SignUpBenefits/SignUpBenefits";
 import FeedColumn from "../../components/FeedColumn/FeedColumn";
 import "./FeedPage.css";

@@ -1,8 +1,8 @@
 .category-sub {
-  margin: 10px 0 0 15px;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.7s ease-in-out; 
+  margin: 20px 0 0 15px;
 }
 
 .category-sub.open {
@@ -20,10 +20,12 @@
 .category-title {
   display: flex;
   align-items: center; 
+  /* margin-bottom: -10px; */
 }
 
 .main-cat-icon {
   margin-left: 10px;
   margin-bottom: -6px;
   vertical-align: middle;
+  font-size: medium;
 }
