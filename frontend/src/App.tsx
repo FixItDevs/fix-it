@@ -6,10 +6,13 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <BrowserRouter>
+      {/* <div className="app"> */}
+
       <Navbar />
       <Routes>
         <Route path="/" element={<FeedPage />} />
       </Routes>
+      {/* </div> */}
     </BrowserRouter>
   );
 }

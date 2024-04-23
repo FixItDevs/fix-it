@@ -1,9 +1,8 @@
 .category-selector-box {
   display: flex;
   flex-direction: column;
-  height: 93vh;
+  min-height: 93vh;
   background-color: var(--primary-background);
-  flex: 1 1 300px;
   padding: 20px 30px;
   border-right: 1px solid #ccc;
 }

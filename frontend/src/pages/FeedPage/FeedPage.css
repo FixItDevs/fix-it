@@ -1,3 +1,55 @@
 .feed-page {
   display: flex;
 }
+
+.category-selector-wrapper {
+  flex: 1 1 300px;
+  height: 100vh; 
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; 
+}
+
+.category-selector-wrapper:hover {
+  overflow-y: auto;
+  scrollbar-color: initial initial;
+}
+
+.feed-column-wrapper {
+  flex: 3 3 900px;
+  height: 100vh; 
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; 
+}
+
+.feed-column-wrapper:hover {
+  overflow-y: auto;
+  scrollbar-color: initial initial;
+}
+
+.signup-benefits-wrapper {
+  flex: 1 1 250px;
+  height: 100vh; 
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; 
+}
+
+.signup-benefits-wrapper:hover {
+  overflow-y: auto;
+  scrollbar-color: initial initial;
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Make scrollbar track transparent */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Set the color of the scrollbar thumb */
+  border-radius: 4px; /* Set the border radius of the scrollbar thumb */
+}
