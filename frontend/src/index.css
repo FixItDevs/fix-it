@@ -3,8 +3,11 @@
 :root {
   --nav-height: 64px;
   
-  --primary-background: #f5fffa;
+  --primary-background: #f8fafa;
   --secondary-background: #579c7c;
+
+  --scroll-background: #edf3f3;
+  --scroll-handle: #d1dbdb;
 
   --grey-200: #eee;
   --grey-300: #ddd;

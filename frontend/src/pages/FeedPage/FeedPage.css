@@ -8,11 +8,11 @@
   height: 100vh; 
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: transparent transparent; 
+  scrollbar-color: var(--primary-background) var(--primary-background); 
 }
 
 .category-selector-wrapper:hover {
-  scrollbar-color: var(--grey-400) var(--grey-200);
+  scrollbar-color: var(--scroll-handle) var(--scroll-background);
 }
 
 .feed-column-wrapper {
@@ -21,11 +21,11 @@
   height: 100vh; 
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: transparent transparent; 
+  scrollbar-color: var(--primary-background) var(--primary-background); 
 }
 
 .feed-column-wrapper:hover {
-  scrollbar-color: var(--grey-400) var(--grey-200);
+  scrollbar-color: var(--scroll-handle) var(--scroll-background);
 }
 
 .signup-benefits-wrapper {
@@ -34,9 +34,9 @@
   height: 100vh; 
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: transparent transparent; 
+  scrollbar-color: var(--primary-background) var(--primary-background);  
 }
 
 .signup-benefits-wrapper:hover {
-  scrollbar-color: var(--grey-400) var(--grey-200);
+  scrollbar-color: var(--scroll-handle) var(--scroll-background);
 }
