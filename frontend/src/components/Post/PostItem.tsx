@@ -76,8 +76,8 @@ const PostItem: React.FC<PostProps> = ({
         ))}
       </div>
       <div className="post-votes-and-comments-section">
-        <div>{renderVoteSection(votes || [])}</div>
-        <div>{renderCommentSection(comments || [])}</div>
+        {renderVoteSection(votes || [])}
+        {renderCommentSection(comments || [])}
       </div>
     </div>
   );
