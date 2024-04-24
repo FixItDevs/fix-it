@@ -1,19 +1,23 @@
 import React from "react";
 import "./PostItem.css";
-import { PostProps, Vote, Comment } from "../../types/post.types";
+import { PostProps, Vote, Comment, Reply } from "../../types/post.types";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 
+
+
 const PostItem: React.FC<PostProps> = ({
-  user,
+  // _id,
+  postAuthor,
   postText,
   tags,
-  comments,
   images,
   videos,
-  votes
+  comments,
+  votes,
 }) => {
+
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
     let downvoteCount = 0;
@@ -21,6 +25,7 @@ const PostItem: React.FC<PostProps> = ({
     votes.forEach((vote) => {
       vote.type === "upvote" ? upvoteCount++ : downvoteCount++;
     });
+
     return (
       <div className="vote-encasing">
         <ArrowUpwardIcon sx={{ color: "white" }} />
@@ -47,34 +52,52 @@ const PostItem: React.FC<PostProps> = ({
   return (
     <div className="post">
       <h2 className="post-title">{postText.title}</h2>
-      <p className="post-description">{postText.description}</p>
-      <p className="post-main-tags">{tags.mainTags}</p>
-      <p className="post-sub-tag">{tags.subTag}</p>
-      <p className="post-user">{user.username}</p>
+      <p className="post-description">{postText.body}</p>
+      <br />
+      <p className="post-user">By {postAuthor.username}</p>
+      <br />
+      <p className="post-main-tags">Tags: {tags.mainTags.join(', ')} and {tags.subTag.join(', ')}</p>
+      {/* <p className="post-sub-tag">{tags.subTag}</p> */}
+      <br />
       <div>
+        {comments?.length > 0 && <h4>Comments:</h4>}
         {comments?.map((comment, index) => (
           <div key={index}>
-            <p>{comment.comment}</p>
-            <p>{comment.user}</p>
+            <p>{comment.commentText} - {comment.commentAuthor.username}</p>
+            {comment.replies?.map((reply, index) => (
+          <div key={index}>
+            <p> --- {reply.replyText} - {reply.replyAuthor.username}</p>
+          </div>
+            ))}
+            <br />
           </div>
         ))}
       </div>
       <div>
         {images?.map((image, index) => (
           <div key={index}>
-            <p>{image.url}</p>
-            <p>{image.caption}</p>
+            <img src={image.url} alt={image.caption} style={{ width: '300px' }} />
           </div>
         ))}
       </div>
+      <br />
       <div>
         {videos?.map((video, index) => (
           <div key={index}>
-            <p>{video.url}</p>
-            <p>{video.caption}</p>
-          </div>
+            <p>This video does not work for some reason.</p>
+          <iframe
+            width="300"
+            height="200"
+            src='https://www.youtube.com/watch?v=1SVv4RuGWYk'
+            title={video.caption}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            ></iframe>
+          <p>{video.caption}</p>
+        </div>
         ))}
       </div>
+        <br />
       <div className="post-votes-and-comments-section">
         {renderVoteSection(votes || [])}
         {renderCommentSection(comments || [])}

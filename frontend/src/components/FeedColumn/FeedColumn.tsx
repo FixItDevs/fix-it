@@ -34,21 +34,23 @@ const FeedColumn = () => {
       <div className="main-feed-container">
         {feedPosts.map((post: PostProps) => (
           <div key={post._id}>
-            {post._id}
-            {/* <PostItem
-              postId={post.postId}
-              user={post.user}
+            {/* {post._id} */}
+            {/* {post.postAuthor.avatar} */}
+            <PostItem
+              _id={post._id}
+              postAuthor={post.postAuthor}
               postText={post.postText}
               tags={post.tags}
               comments={post.comments}
               images={post.images}
               videos={post.videos}
               votes={post.votes}
-            /> */}
+            />
             <div className="feed-divider"></div>
           </div>
         ))}
       </div>
+      <div className="footer-bit"></div>
     </div>
   );
 };
