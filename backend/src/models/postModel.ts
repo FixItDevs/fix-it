@@ -10,10 +10,10 @@ const postModel = new mongoose.Schema({
     title: { type: String},
     description: { type: String }
   },
-  tags: [{
+  tags: {
     mainTags: [String],
     subTag: [String]
-  }],
+  },
   images: [{
     url: { type: String, required: false },
     caption: { type: String, required: false }

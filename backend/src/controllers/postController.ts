@@ -27,3 +27,27 @@ export const addPost = async (req: Request, res: Response, next: NextFunction) =
     next(error);
   }
 }
+
+export const getPostsByTag = async (req: Request, res: Response, next: NextFunction) => {
+  let { mainTags, subTags } = req.query;
+  
+    if (!mainTags && !subTags) {
+      getAllPosts(req, res, next);
+      return;
+    }
+
+  let mainTagsArray = typeof mainTags === 'string' ? mainTags.split(',') : null;
+  let subTagsArray = typeof subTags === 'string' ? subTags.split(',') : null;
+
+  try {
+    const posts = await Post.find({
+      $or: [
+        { 'tags.mainTags': { $in: mainTagsArray } },
+        { 'tags.subTag': { $in: subTagsArray } }
+      ]
+    });
+    res.status(200).json(posts);
+  } catch (error) {
+    next(error);
+  }
+}
