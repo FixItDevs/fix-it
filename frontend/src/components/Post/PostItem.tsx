@@ -42,7 +42,7 @@ const PostItem: React.FC<PostProps> = ({
   const renderCommentSection = (comments: Comment[]) => {
     return (
       <div className="comment-encasing">
-        <ChatBubbleIcon sx={{ color: "white", height: '1.2rem' }} />
+        <ChatBubbleIcon sx={{ color: "white", height: "1.2rem" }} />
         <span className="comment-count">{comments.length}</span>
       </div>
     );
