@@ -1,10 +1,8 @@
 import React from "react";
 import "./PostItem.css";
 import { PostProps, Vote } from "../../types/post.types";
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import Button from "@mui/material/Button";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -15,31 +13,24 @@ const PostItem: React.FC<PostProps> = ({
   videos,
   votes
 }) => {
-  const renderVoteIcons = (votes: Vote[]) => {
+
+  const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
     let downvoteCount = 0;
 
     votes.forEach((vote) => {
       vote.type === "upvote" ? upvoteCount++ : downvoteCount++;
     });
-
     return (
-      <ButtonGroup
-        disableElevation
-        variant="contained"
-        aria-label="Disabled button group"
-      >
-        <Button color="primary">
-          <ThumbUpOffAltIcon />
-          {upvoteCount > downvoteCount && <span>{upvoteCount}</span>}
-        </Button>
-        <Button>
-          <ThumbDownOffAltIcon />
-          {downvoteCount > upvoteCount && <span>{downvoteCount}</span>}
-        </Button>
-      </ButtonGroup>
-    );
-  };
+      <div className="vote-encasing">
+        <ArrowUpwardIcon sx={{ color: 'white'}}/>
+        {upvoteCount > downvoteCount && <span className="vote-count">{upvoteCount}</span>}
+        <ArrowDownwardIcon sx={{ color: 'white'}}/>
+        {downvoteCount > upvoteCount && <span className="vote-count">{downvoteCount}</span>}
+      </div>
+    )
+    
+  }
 
   return (
     <div className="post">
@@ -72,7 +63,7 @@ const PostItem: React.FC<PostProps> = ({
           </div>
         ))}
       </div>
-      <div>{renderVoteIcons(votes || [])}</div>
+      <div>{renderVoteSection(votes || [])}</div>
     </div>
   );
 };
