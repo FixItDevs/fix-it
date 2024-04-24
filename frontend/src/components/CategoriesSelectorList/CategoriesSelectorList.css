@@ -31,8 +31,7 @@
   cursor: pointer;
 }
 
-.feed-divider {
+.horizontal-divider {
   height: 1px;
   background-color: var(--grey-300);
-  margin: 30px auto 20px;
 }

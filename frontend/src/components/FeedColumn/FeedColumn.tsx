@@ -42,7 +42,7 @@ const FeedColumn = () => {
               videos={post.videos}
               votes={post.votes}
             />
-            <div className="feed-divider"></div>
+            <div className="horizontal-divider feed-divider"></div>
           </div>
         ))}
       </div>
