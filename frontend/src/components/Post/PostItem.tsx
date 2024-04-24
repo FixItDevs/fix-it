@@ -1,8 +1,9 @@
 import React from "react";
 import "./PostItem.css";
-import { PostProps, Vote } from "../../types/post.types";
+import { PostProps, Vote, Comment } from "../../types/post.types";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -33,6 +34,15 @@ const PostItem: React.FC<PostProps> = ({
       </div>
     );
   };
+
+  const renderCommentSection = (comments: Comment[]) => {
+    return (
+      <div className="comment-encasing">
+        <ChatBubbleIcon sx={{color: "white"}}/>
+        <span className="comment-count">{comments.length}</span>
+      </div>
+    )
+  }
 
   return (
     <div className="post">
@@ -65,7 +75,10 @@ const PostItem: React.FC<PostProps> = ({
           </div>
         ))}
       </div>
-      <div>{renderVoteSection(votes || [])}</div>
+      <div className="post-votes-and-comments-section">
+        <div>{renderVoteSection(votes || [])}</div>
+        <div>{renderCommentSection(comments || [])}</div>
+      </div>
     </div>
   );
 };
