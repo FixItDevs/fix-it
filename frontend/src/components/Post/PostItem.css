@@ -17,6 +17,12 @@
   margin-right: 0.3rem;
 }
 
+.post-avatar-username-section {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+}
+
 .vote-encasing {
   display: flex;
   align-items: center;

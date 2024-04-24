@@ -6,6 +6,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { timeElapsedSince } from "../../utils/timeElapsed";
+import CircleIcon from "@mui/icons-material/Circle";
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -53,10 +54,11 @@ const PostItem: React.FC<PostProps> = ({
     date: string
   ) => {
     return (
-      <div className="avatar-username-section">
+      <div className="post-avatar-username-section">
         {!avatar && <AccountCircleIcon />}
-        <span>{username || "user-name-here"}</span>
-        <span>{timeElapsedSince(date)}</span>
+        <span className="post-username">{username || "user-name-here"}</span>
+        <CircleIcon sx={{ width: "1rem", height: "0.2rem" }} />
+        <span className="post-date">{timeElapsedSince(date)}</span>
       </div>
     );
   };
