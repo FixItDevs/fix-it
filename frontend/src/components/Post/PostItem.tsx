@@ -4,6 +4,8 @@ import { PostProps, Vote, Comment } from "../../types/post.types";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { timeElapsedSince } from "../../utils/timeElapsed";
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -12,7 +14,8 @@ const PostItem: React.FC<PostProps> = ({
   comments,
   images,
   videos,
-  votes
+  votes,
+  createdAt
 }) => {
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
@@ -44,21 +47,23 @@ const PostItem: React.FC<PostProps> = ({
     );
   };
 
+  const renderAvatarUsernameSection = (username: string, avatar: string | null, date: string) => {    
+    return (
+      <div className="avatar-username-section">
+        {!avatar && <AccountCircleIcon/>}
+        <span>{username || 'user-name-here'}</span>
+        <span>{timeElapsedSince(date)}</span>
+      </div>
+    )
+  }
+
   return (
     <div className="post">
+      {renderAvatarUsernameSection(user.username, user.avatar, createdAt)}
       <h2 className="post-title">{postText.title}</h2>
       <p className="post-description">{postText.description}</p>
       <p className="post-main-tags">{tags.mainTags}</p>
       <p className="post-sub-tag">{tags.subTag}</p>
-      <p className="post-user">{user.username}</p>
-      <div>
-        {comments?.map((comment, index) => (
-          <div key={index}>
-            <p>{comment.comment}</p>
-            <p>{comment.user}</p>
-          </div>
-        ))}
-      </div>
       <div>
         {images?.map((image, index) => (
           <div key={index}>

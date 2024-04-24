@@ -39,6 +39,7 @@ export interface Vote {
 
 export interface PostProps {
   postId: string;
+  createdAt: string;
   user: User;
   postText: Post;
   tags: Tags;

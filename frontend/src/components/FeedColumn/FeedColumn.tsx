@@ -41,6 +41,7 @@ const FeedColumn = () => {
               images={post.images}
               videos={post.videos}
               votes={post.votes}
+              createdAt={post.createdAt}
             />
             <div className="feed-divider"></div>
           </div>
