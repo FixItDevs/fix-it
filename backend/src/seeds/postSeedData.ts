@@ -35,14 +35,14 @@ export const postSeedData = [
         username: 'Bob',
         avatar: 'https://assets-prd.ignimgs.com/2024/01/25/bob-the-builder-button-1706221996136.jpg'
       },
-      comment: "You are the King!",
+      commentText: "You are the King!",
       replies: [{
         replyAuthor: {
           userId: '662641bc06a547c6c7f10dc9',
           username: 'Batman',
           avatar: 'https://i.guim.co.uk/img/media/c8c00617b792d1d53f2d2b318820d5758dc61551/231_0_2968_1782/master/2968.jpg?width=1200&quality=85&auto=format&fit=max&s=99459057199a54c97181e29b0947b5fb'
         },
-        reply: "Yeah, you're like the king of cholesterol!"
+        replyText: "Yeah, you're like the king of cholesterol!"
       }
       ]
       },
@@ -52,7 +52,7 @@ export const postSeedData = [
           username: 'Batman',
           avatar: 'https://i.guim.co.uk/img/media/c8c00617b792d1d53f2d2b318820d5758dc61551/231_0_2968_1782/master/2968.jpg?width=1200&quality=85&auto=format&fit=max&s=99459057199a54c97181e29b0947b5fb'
         },
-      comment: "Dude, seriously!?",
+      commentText: "Dude, seriously!?",
       replies: []
       }
     ],
