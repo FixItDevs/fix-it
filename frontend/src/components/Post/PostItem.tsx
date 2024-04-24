@@ -4,7 +4,7 @@ import { PostProps, Vote, Comment } from "../../types/post.types";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { timeElapsedSince } from "../../utils/timeElapsed";
 
 const PostItem: React.FC<PostProps> = ({
@@ -47,15 +47,19 @@ const PostItem: React.FC<PostProps> = ({
     );
   };
 
-  const renderAvatarUsernameSection = (username: string, avatar: string | null, date: string) => {    
+  const renderAvatarUsernameSection = (
+    username: string,
+    avatar: string | null,
+    date: string
+  ) => {
     return (
       <div className="avatar-username-section">
-        {!avatar && <AccountCircleIcon/>}
-        <span>{username || 'user-name-here'}</span>
+        {!avatar && <AccountCircleIcon />}
+        <span>{username || "user-name-here"}</span>
         <span>{timeElapsedSince(date)}</span>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div className="post">
