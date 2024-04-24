@@ -1,19 +1,18 @@
 import { User } from "./user.types";
 
 export interface Reply {
-  user: string;
-  _id: string;
-  comment: string;
+  replyAuthor: Author;
+  replyText: string;
 }
 
 export interface Post {
   title: string;
-  description: string;
+  body: string;
 }
 
 export interface Comment {
-  user: string;
-  comment: string;
+  commentAuthor: Author;
+  commentText: string;
   replies: Reply[];
 }
 
@@ -37,13 +36,20 @@ export interface Vote {
   type: "upvote" | "downvote";
 }
 
+export interface Author {
+  userId: string;
+  username: string;
+  avatar: string;
+}
+
 export interface PostProps {
-  postId: string;
-  user: User;
+  _id: string;
+  postAuthor: Author;
   postText: Post;
   tags: Tags;
-  comments?: Comment[];
-  images?: Image[];
-  videos?: Video[];
-  votes?: Vote[];
+  images: Image[];
+  videos: Video[];
+  comments: Comment[];
+  votes: Vote[];
 }
+

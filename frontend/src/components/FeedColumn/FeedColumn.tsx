@@ -15,6 +15,8 @@ const FeedColumn = () => {
       }
 
       const posts = response.data;
+      console.log(posts)
+      console.log(posts[0]._id)
       setFeedPosts(posts);
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -31,8 +33,9 @@ const FeedColumn = () => {
 
       <div className="main-feed-container">
         {feedPosts.map((post: PostProps) => (
-          <div key={post.postId}>
-            <PostItem
+          <div key={post._id}>
+            {post._id}
+            {/* <PostItem
               postId={post.postId}
               user={post.user}
               postText={post.postText}
@@ -41,7 +44,7 @@ const FeedColumn = () => {
               images={post.images}
               videos={post.videos}
               votes={post.votes}
-            />
+            /> */}
             <div className="feed-divider"></div>
           </div>
         ))}
