@@ -15,8 +15,6 @@ const FeedColumn = () => {
       }
 
       const posts = response.data;
-      console.log(posts)
-      console.log(posts[0]._id)
       setFeedPosts(posts);
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -34,8 +32,6 @@ const FeedColumn = () => {
       <div className="main-feed-container">
         {feedPosts.map((post: PostProps) => (
           <div key={post._id}>
-            {/* {post._id} */}
-            {/* {post.postAuthor.avatar} */}
             <PostItem
               _id={post._id}
               postAuthor={post.postAuthor}

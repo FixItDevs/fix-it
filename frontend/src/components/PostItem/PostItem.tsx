@@ -5,10 +5,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 
-
-
 const PostItem: React.FC<PostProps> = ({
-  // _id,
   postAuthor,
   postText,
   tags,
@@ -60,7 +57,6 @@ const PostItem: React.FC<PostProps> = ({
       </div>
       <br />
       <p className="post-main-tags">Tags: {tags.mainTags.join(', ')} and {tags.subTag.join(', ')}</p>
-      {/* <p className="post-sub-tag">{tags.subTag}</p> */}
       <br />
       <div>
         {comments?.length > 0 && <h4>Comments:</h4>}
