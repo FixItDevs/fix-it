@@ -13,8 +13,8 @@ const PostItem: React.FC<PostProps> = ({
   postText,
   tags,
   comments,
-  images,
-  videos,
+  // images,
+  // videos,
   votes,
   createdAt
 }) => {
@@ -70,7 +70,7 @@ const PostItem: React.FC<PostProps> = ({
       <p className="post-description">{postText.description}</p>
       <p className="post-main-tags">{tags.mainTags}</p>
       <p className="post-sub-tag">{tags.subTag}</p>
-      <div>
+      {/* <div>
         {images?.map((image, index) => (
           <div key={index}>
             <p>{image.url}</p>
@@ -85,7 +85,7 @@ const PostItem: React.FC<PostProps> = ({
             <p>{video.caption}</p>
           </div>
         ))}
-      </div>
+      </div> */}
       <div className="post-votes-and-comments-section">
         {renderVoteSection(votes || [])}
         {renderCommentSection(comments || [])}
