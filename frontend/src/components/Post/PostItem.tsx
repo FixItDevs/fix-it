@@ -42,7 +42,7 @@ const PostItem: React.FC<PostProps> = ({
   const renderCommentSection = (comments: Comment[]) => {
     return (
       <div className="comment-encasing">
-        <ChatBubbleIcon sx={{ color: "white" }} />
+        <ChatBubbleIcon sx={{ color: "white", height: '1.2rem' }} />
         <span className="comment-count">{comments.length}</span>
       </div>
     );
@@ -64,28 +64,12 @@ const PostItem: React.FC<PostProps> = ({
   };
 
   return (
-    <div className="post">
+    <div className="post-container">
       {renderAvatarUsernameSection(user.username, user.avatar, createdAt)}
       <h2 className="post-title">{postText.title}</h2>
       <p className="post-description">{postText.description}</p>
       <p className="post-main-tags">{tags.mainTags}</p>
       <p className="post-sub-tag">{tags.subTag}</p>
-      {/* <div>
-        {images?.map((image, index) => (
-          <div key={index}>
-            <p>{image.url}</p>
-            <p>{image.caption}</p>
-          </div>
-        ))}
-      </div>
-      <div>
-        {videos?.map((video, index) => (
-          <div key={index}>
-            <p>{video.url}</p>
-            <p>{video.caption}</p>
-          </div>
-        ))}
-      </div> */}
       <div className="post-votes-and-comments-section">
         {renderVoteSection(votes || [])}
         {renderCommentSection(comments || [])}
