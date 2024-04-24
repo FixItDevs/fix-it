@@ -15,7 +15,11 @@ const CategoriesSelectorList = () => {
       <div className="categories-list-box">
         {categoriesList.map((category) => (
           <div key={category.main}>
-            <CategorySelectorItem category={category} openCategories={openCategories} setOpenCategories={setOpenCategories} />
+            <CategorySelectorItem
+              category={category}
+              openCategories={openCategories}
+              setOpenCategories={setOpenCategories}
+            />
             <div className="feed-divider"></div>
           </div>
         ))}

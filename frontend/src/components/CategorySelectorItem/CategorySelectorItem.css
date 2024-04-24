@@ -1,12 +1,14 @@
 .category-sub {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.7s ease-in-out, margin 0.8s ease; 
+  transition:
+    max-height 0.7s ease-in-out,
+    margin 0.8s ease;
   margin: 20px 0 0 15px;
 }
 
 .category-sub.open {
-  max-height: 500px; 
+  max-height: 500px;
 }
 
 .category-main-container {
@@ -22,7 +24,7 @@
   padding: 6px 12px;
   border-radius: 8px;
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .category-main-label:hover {
@@ -58,7 +60,7 @@
 }
 
 .category-sub-item {
-  padding: 6px 12px; 
+  padding: 6px 12px;
   border-radius: 5px;
   /* display: inline-block;  */
   font-size: 1.1rem;

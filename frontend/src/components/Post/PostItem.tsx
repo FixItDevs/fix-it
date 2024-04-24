@@ -1,8 +1,8 @@
 import React from "react";
 import "./PostItem.css";
 import { PostProps, Vote } from "../../types/post.types";
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 const PostItem: React.FC<PostProps> = ({
   user,
@@ -13,7 +13,6 @@ const PostItem: React.FC<PostProps> = ({
   videos,
   votes
 }) => {
-
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
     let downvoteCount = 0;
@@ -23,14 +22,17 @@ const PostItem: React.FC<PostProps> = ({
     });
     return (
       <div className="vote-encasing">
-        <ArrowUpwardIcon sx={{ color: 'white'}}/>
-        {upvoteCount > downvoteCount && <span className="vote-count">{upvoteCount}</span>}
-        <ArrowDownwardIcon sx={{ color: 'white'}}/>
-        {downvoteCount > upvoteCount && <span className="vote-count">{downvoteCount}</span>}
+        <ArrowUpwardIcon sx={{ color: "white" }} />
+        {upvoteCount > downvoteCount && (
+          <span className="vote-count">{upvoteCount}</span>
+        )}
+        <ArrowDownwardIcon sx={{ color: "white" }} />
+        {downvoteCount > upvoteCount && (
+          <span className="vote-count">{downvoteCount}</span>
+        )}
       </div>
-    )
-    
-  }
+    );
+  };
 
   return (
     <div className="post">

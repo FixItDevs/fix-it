@@ -4,10 +4,10 @@
 
 .category-selector-wrapper {
   flex: 1 1 300px;
-  height: 100vh; 
+  height: 100vh;
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-background) var(--primary-background); 
+  scrollbar-color: var(--primary-background) var(--primary-background);
 }
 
 .category-selector-wrapper:hover {
@@ -16,10 +16,10 @@
 
 .feed-column-wrapper {
   flex: 3 3 900px;
-  height: 100vh; 
+  height: 100vh;
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-background) var(--primary-background); 
+  scrollbar-color: var(--primary-background) var(--primary-background);
 }
 
 .feed-column-wrapper:hover {
@@ -28,10 +28,10 @@
 
 .signup-benefits-wrapper {
   flex: 1 1 250px;
-  height: 100vh; 
+  height: 100vh;
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-background) var(--primary-background);  
+  scrollbar-color: var(--primary-background) var(--primary-background);
 }
 
 .signup-benefits-wrapper:hover {
