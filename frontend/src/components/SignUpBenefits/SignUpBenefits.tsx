@@ -10,9 +10,13 @@ const SignUpBenefits = () => {
     "Make your DIY project dream a reality! "
   ];
 
+  const handleSignUpClick = () => {
+    console.log('Right hand - Sign up clicked')
+  }
+
   return (
     <div className="sign-up-benefits-container">
-      <span className="sign-up-title">Sign up today!</span>
+      <span className="sign-up-title" onClick={() => handleSignUpClick()}>Sign up today!</span>
       {benefits.map((benefit) => (
         <div key={benefit} className="sign-up-benefit-encasing">
           <div className="hardware-icon">
