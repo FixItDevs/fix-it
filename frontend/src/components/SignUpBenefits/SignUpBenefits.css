@@ -1,6 +1,30 @@
 .sign-up-benefits-container {
   min-height: 93vh;
   background-color: var(--primary-background);
-  padding: 20px 30px;
-  border-left: 1px solid #ccc;
+  padding: 2rem 3rem;
+  border-left: 0.1rem solid #ccc;
+}
+
+.sign-up-title {
+  display: flex;
+  justify-content: center;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+
+.sign-up-benefit-encasing {
+  display: flex;
+  padding: 1rem;
+}
+
+.sign-up-benefit-encasing:hover {
+  background-color: #f0f0f0; 
+}
+
+.hardware-icon {
+  padding-right: 0.5rem;
+}
+
+.benefit-text {
+  text-align: center;
 }

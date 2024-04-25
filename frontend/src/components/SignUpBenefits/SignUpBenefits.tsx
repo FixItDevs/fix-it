@@ -12,11 +12,11 @@ const SignUpBenefits = () => {
 
   return (
     <div className="sign-up-benefits-container">
-      <span>Why not sign up today?</span>
+      <span className="sign-up-title">Sign up today!</span>
       {benefits.map((benefit) => (
-        <div key={benefit}>
-          <HardwareIcon />
-          {benefit}
+        <div key={benefit} className="sign-up-benefit-encasing">
+          <div className="hardware-icon"><HardwareIcon /></div>
+          <div className="benefit-text">{benefit}</div>
         </div>
       ))}
     </div>
