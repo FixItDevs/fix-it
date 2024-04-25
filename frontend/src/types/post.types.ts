@@ -51,4 +51,5 @@ export interface PostObject {
   videos: Video[];
   comments: Comment[];
   votes: Vote[];
+  createdAt: string;
 }
