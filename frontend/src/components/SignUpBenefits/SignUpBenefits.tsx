@@ -20,7 +20,11 @@ const SignUpBenefits = () => {
         Sign up today!
       </span>
       {benefits.map((benefit) => (
-        <div key={benefit} className="sign-up-benefit-encasing" onClick={() => handleSignUpClick()}>
+        <div
+          key={benefit}
+          className="sign-up-benefit-encasing"
+          onClick={() => handleSignUpClick()}
+        >
           <div className="hardware-icon">
             <HardwareIcon />
           </div>
