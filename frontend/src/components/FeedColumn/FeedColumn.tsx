@@ -3,13 +3,14 @@ import PostItem from "../PostItem/PostItem";
 import { useEffect, useState } from "react";
 import { PostObject } from "../../types/post.types";
 import axios from "axios";
+import baseUrl from "../../utils/baseUrl";
 
 const FeedColumn = () => {
   const [feedPosts, setFeedPosts] = useState<PostObject[]>([]);
 
   async function getPosts() {
     try {
-      const response = await axios.get("http://localhost:3000/api/v1.0/posts");
+      const response = await axios.get(`${baseUrl}/api/v1.0/posts`);
       if (response.status !== 200) {
         throw new Error("Error in network response");
       }
