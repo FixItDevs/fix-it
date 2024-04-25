@@ -9,6 +9,7 @@
     "server": "node --watch dist/index.js",
     "backend": "concurrently \"tsc -watch\" \"npm run server\"",
     "start": "concurrently \"tsc -watch\" \"npm run server\" \"cd ../frontend && npm run dev\"",
+    "start:test": "MONGO_DBNAME='fixit_TEST' concurrently \"tsc -watch\" \"npm run server\" \"cd ../frontend && npm run dev\"",
     "seed:posts:dev": "MONGO_DBNAME='fixit_DEV' node dist/seeds/seedPosts.js",
     "seed:posts:test": "MONGO_DBNAME='fixit_TEST' node dist/seeds/seedPosts.js",
     "seed:posts:prod": "MONGO_DBNAME='fixit_PROD' node dist/seeds/seedPosts.js",

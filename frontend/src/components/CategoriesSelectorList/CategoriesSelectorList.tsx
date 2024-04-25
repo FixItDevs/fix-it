@@ -20,7 +20,7 @@ const CategoriesSelectorList = () => {
               openCategories={openCategories}
               setOpenCategories={setOpenCategories}
             />
-            <div className="feed-divider"></div>
+            <div className="horizontal-divider"></div>
           </div>
         ))}
       </div>

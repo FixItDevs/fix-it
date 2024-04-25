@@ -8,7 +8,8 @@ const userModel = new mongoose.Schema({
     index: { unique: true }
   },
   avatar: {
-    url: { type: String, required: false }
+    url: { type: String, required: false },
+    altText: { type: String, required: false }
   },
   email: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true }
