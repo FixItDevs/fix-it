@@ -1,7 +1,6 @@
 .sign-up-benefits-container {
   min-height: 93vh;
   background-color: var(--primary-background);
-  padding: 2rem 3rem;
   border-left: 0.1rem solid #ccc;
 }
 
