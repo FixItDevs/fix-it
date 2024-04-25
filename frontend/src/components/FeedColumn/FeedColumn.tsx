@@ -1,7 +1,7 @@
 import "./FeedColumn.css";
 import PostItem from "../PostItem/PostItem";
 import { useEffect, useState } from "react";
-import { PostObject, DbPostObject } from "../../types/post.types";
+import { PostObject } from "../../types/post.types";
 import axios from "axios";
 
 const FeedColumn = () => {
@@ -13,12 +13,7 @@ const FeedColumn = () => {
       if (response.status !== 200) {
         throw new Error("Error in network response");
       }
-
-      const rawPosts = response.data;
-      const posts = rawPosts.map((post: DbPostObject) => {
-        const { _id: postId, ...rest } = post;
-        return { postId, ...rest };
-      });
+      const posts = response.data;
       setFeedPosts(posts);
     } catch (error) {
       console.error("Error fetching posts:", error);

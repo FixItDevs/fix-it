@@ -42,17 +42,6 @@ export interface Author {
   avatar: string;
 }
 
-export interface DbPostObject {
-  _id: string;
-  postAuthor: Author;
-  postText: PostText;
-  tags: Tags;
-  images: Image[];
-  videos: Video[];
-  comments: Comment[];
-  votes: Vote[];
-}
-
 export interface PostObject {
   postId: string;
   postAuthor: Author;
