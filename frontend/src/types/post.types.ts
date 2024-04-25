@@ -5,7 +5,7 @@ export interface Reply {
   replyText: string;
 }
 
-export interface Post {
+export interface PostText {
   title: string;
   body: string;
 }
@@ -42,10 +42,21 @@ export interface Author {
   avatar: string;
 }
 
-export interface PostProps {
+export interface DbPost {
   _id: string;
   postAuthor: Author;
-  postText: Post;
+  postText: PostText;
+  tags: Tags;
+  images: Image[];
+  videos: Video[];
+  comments: Comment[];
+  votes: Vote[];
+}
+
+export interface Post {
+  postId: string;
+  postAuthor: Author;
+  postText: PostText;
   tags: Tags;
   images: Image[];
   videos: Video[];
