@@ -1,11 +1,11 @@
 import "./FeedColumn.css";
 import PostItem from "../PostItem/PostItem";
 import { useEffect, useState } from "react";
-import { Post, DbPost } from "../../types/post.types";
+import { PostObject, DbPostObject } from "../../types/post.types";
 import axios from "axios";
 
 const FeedColumn = () => {
-  const [feedPosts, setFeedPosts] = useState<Post[]>([]);
+  const [feedPosts, setFeedPosts] = useState<PostObject[]>([]);
 
   async function getPosts() {
     try {
@@ -15,7 +15,7 @@ const FeedColumn = () => {
       }
 
       const rawPosts = response.data;
-      const posts = rawPosts.map((post: DbPost) => {
+      const posts = rawPosts.map((post: DbPostObject) => {
         const { _id: postId, ...rest } = post;
         return { postId, ...rest };
       });
@@ -34,7 +34,7 @@ const FeedColumn = () => {
       <h1 className="feed-title">I am a dummy title by the way</h1>
 
       <div className="main-feed-container">
-        {feedPosts.map((post: Post) => (
+        {feedPosts.map((post: PostObject) => (
           <div key={post.postId}>
             <PostItem
               postId={post.postId}

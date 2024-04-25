@@ -42,7 +42,7 @@ export interface Author {
   avatar: string;
 }
 
-export interface DbPost {
+export interface DbPostObject {
   _id: string;
   postAuthor: Author;
   postText: PostText;
@@ -53,7 +53,7 @@ export interface DbPost {
   votes: Vote[];
 }
 
-export interface Post {
+export interface PostObject {
   postId: string;
   postAuthor: Author;
   postText: PostText;
@@ -63,4 +63,3 @@ export interface Post {
   comments: Comment[];
   votes: Vote[];
 }
-

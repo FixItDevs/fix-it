@@ -1,11 +1,11 @@
 import React from "react";
 import "./PostItem.css";
-import { Post, Vote, Comment } from "../../types/post.types";
+import { PostObject, Vote, Comment } from "../../types/post.types";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 
-const PostItem: React.FC<Post> = ({
+const PostItem: React.FC<PostObject> = ({
   postAuthor,
   postText,
   tags,
