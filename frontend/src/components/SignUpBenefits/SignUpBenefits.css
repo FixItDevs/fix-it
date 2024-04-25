@@ -15,6 +15,7 @@
 .sign-up-benefit-encasing {
   display: flex;
   padding: 1rem;
+  cursor: pointer;
 }
 
 .sign-up-benefit-encasing:hover {
