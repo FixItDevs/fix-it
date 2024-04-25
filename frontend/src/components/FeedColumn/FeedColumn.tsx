@@ -1,5 +1,5 @@
 import "./FeedColumn.css";
-import PostItem from "../Post/PostItem";
+import PostItem from "../PostItem/PostItem";
 import { useEffect, useState } from "react";
 import { PostProps } from "../../types/post.types";
 import axios from "axios";
