@@ -6,7 +6,7 @@ const SignUpBenefits = () => {
   const benefits = [
     "Learn from over 50 DIY topics",
     "Earn reputation by helping others",
-    "Build a FixIt community",
+    "Build your own FixIt community",
     "Make your DIY project dream a reality! "
   ];
 
