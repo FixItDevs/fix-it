@@ -15,7 +15,9 @@ const SignUpBenefits = () => {
       <span className="sign-up-title">Sign up today!</span>
       {benefits.map((benefit) => (
         <div key={benefit} className="sign-up-benefit-encasing">
-          <div className="hardware-icon"><HardwareIcon /></div>
+          <div className="hardware-icon">
+            <HardwareIcon />
+          </div>
           <div className="benefit-text">{benefit}</div>
         </div>
       ))}
