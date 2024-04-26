@@ -25,7 +25,6 @@ const PostItem: React.FC<PostObject> = ({
     votes.forEach((vote) => {
       vote.type === "upvote" ? upvoteCount++ : downvoteCount++;
     });
-    console.log(upvoteCount, downvoteCount)
     return (
       <div className="vote-encasing">
         <ArrowUpwardIcon sx={{ color: "white" }} />
