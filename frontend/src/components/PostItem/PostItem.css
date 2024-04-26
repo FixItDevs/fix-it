@@ -37,7 +37,7 @@
 .post-avatar-username-section {
   display: flex;
   align-items: center;
-  padding: 0.2rem;
+  padding-bottom: 0.5rem;
 }
 
 .post-username {
@@ -49,7 +49,6 @@
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  margin-left: 0.5rem;
   border: 1px solid #36625b;
 }
 
