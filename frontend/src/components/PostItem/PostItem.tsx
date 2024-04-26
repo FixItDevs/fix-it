@@ -70,16 +70,11 @@ const PostItem: React.FC<PostObject> = ({
         postAuthor.avatar,
         createdAt
       )}
-      <h2 className="post-title">{postText.title}</h2>
-      <p className="post-description">{postText.body}</p>
-      <p className="post-main-tags">{tags.mainTags}</p>
-      <p className="post-sub-tag">{tags.subTag}</p>
       <div className="post">
         <h2 className="post-title">{postText.title}</h2>
         <p className="post-description">{postText.body}</p>
         <br />
         <div className="user-and-avatar">
-          <p className="post-user">By {postAuthor.username}</p>
           <img src={postAuthor.avatar} alt="avatar" className="user-avatar" />
         </div>
         <br />
@@ -87,39 +82,6 @@ const PostItem: React.FC<PostObject> = ({
           Tags: {tags.mainTags.join(", ")} and {tags.subTag.join(", ")}
         </p>
         <br />
-        <div>
-          {comments?.length > 0 && <h4>Comments:</h4>}
-          {comments?.map((comment, index) => (
-            <div key={index}>
-              <div className="user-and-avatar">
-                <p>
-                  {comment.commentText} - {comment.commentAuthor.username}
-                </p>
-                <img
-                  src={comment.commentAuthor.avatar}
-                  alt="avatar"
-                  className="user-avatar"
-                />
-              </div>
-              {comment.replies?.map((reply, index) => (
-                <div key={index}>
-                  <div className="user-and-avatar">
-                    <p>
-                      {" "}
-                      --- {reply.replyText} - {reply.replyAuthor.username}
-                    </p>
-                    <img
-                      src={reply.replyAuthor.avatar}
-                      alt="avatar"
-                      className="user-avatar"
-                    />
-                  </div>
-                </div>
-              ))}
-              <br />
-            </div>
-          ))}
-        </div>
         <div>
           {images?.map((image, index) => (
             <div key={index}>
