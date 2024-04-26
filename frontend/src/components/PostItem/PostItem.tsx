@@ -55,7 +55,11 @@ const PostItem: React.FC<PostObject> = ({
   ) => {
     return (
       <div className="post-avatar-username-section">
-        { avatar ? <img src={avatar} alt="avatar" className="user-avatar" /> : <AccountCircleIcon /> }
+        {avatar ? (
+          <img src={avatar} alt="avatar" className="user-avatar" />
+        ) : (
+          <AccountCircleIcon />
+        )}
         <span className="post-username">{username || "user-name-here"}</span>
         <CircleIcon sx={{ width: "1rem", height: "0.2rem" }} />
         <span className="post-date">{timeElapsedSince(date)}</span>
@@ -74,8 +78,7 @@ const PostItem: React.FC<PostObject> = ({
         <h2 className="post-title">{postText.title}</h2>
         <p className="post-description">{postText.body}</p>
         <br />
-        <div className="user-and-avatar">
-        </div>
+        <div className="user-and-avatar"></div>
         <br />
         <p className="post-main-tags">
           Tags: {tags.mainTags.join(", ")} and {tags.subTag.join(", ")}
