@@ -36,6 +36,14 @@
   font-size: 0.9rem;
 }
 
+.post-user-avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  border: 1px solid #36625b;
+}
+
 .post-date {
   color: #828282;
   font-size: 0.9rem;
@@ -71,15 +79,19 @@
   color: white;
 }
 
-.user-avatar {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  margin-left: 0.5rem;
-  border: 1px solid #36625b;
-}
-
-.user-and-avatar {
+.post-tag-encasing {
   display: flex;
   align-items: center;
+}
+
+.main-tag,
+.sub-tag {
+  padding: 0.3rem 0.1rem;
+  border-radius: 0.5rem;
+}
+
+.main-tag:hover,
+.sub-tag:hover {
+  background-color: var(--grey-200);
+  cursor: pointer;
 }

@@ -7,6 +7,7 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
@@ -56,7 +57,7 @@ const PostItem: React.FC<PostObject> = ({
     return (
       <div className="post-avatar-username-section">
         {avatar ? (
-          <img src={avatar} alt="avatar" className="user-avatar" />
+          <img src={avatar} alt="avatar" className="post-user-avatar" />
         ) : (
           <AccountCircleIcon />
         )}
@@ -78,10 +79,16 @@ const PostItem: React.FC<PostObject> = ({
         <h2 className="post-title">{postText.title}</h2>
         <p className="post-description">{postText.body}</p>
         <br />
-        <div className="user-and-avatar"></div>
-        <br />
-        <p className="post-main-tags">
-          Tags: {tags.mainTags.join(", ")} and {tags.subTag.join(", ")}
+        <p className="post-tag-encasing">
+          <LocalOfferIcon/>
+          <div className="post-tag-text">
+            {tags.mainTags.map((mainTag, index) => (
+              <span key={index} className="main-tag">{mainTag} </span>
+            ))}
+            {tags.subTag.map((subTag, index) => (
+              <span key={index} className="sub-tag">{subTag} </span>
+            ))}
+          </div>
         </p>
         <br />
         <div>
