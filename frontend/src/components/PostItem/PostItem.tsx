@@ -8,6 +8,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import ImageCarousel from "../ImageCarousel/ImageCarousel";
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
@@ -102,20 +103,12 @@ const PostItem: React.FC<PostObject> = ({
             </div>
           </div>
           <div className="post-images">
-            <img
+            {/* <img
               src={images[0].url}
               alt={images[0].caption}
               style={{ width: "200px" }}
-            />
-            {/* {images?.map((image, index) => (
-              <div key={index}>
-                <img
-                  src={image.url}
-                  alt={image.caption}
-                  style={{ width: "300px" }}
-                />
-              </div>
-            ))} */}
+            /> */}
+            <ImageCarousel images={images} />
           </div>
         </div>
         {/* <div>
