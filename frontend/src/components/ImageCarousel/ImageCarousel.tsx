@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Image } from "../../types/post.types";
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 interface ImageCarouselProps {
-  images: Image[]
+  images: Image[];
 }
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
@@ -17,15 +17,23 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
       <div className="carousel-images">
         {showNextImage ? (
           <div className="slide active">
-            <img src={images[1].url} alt={images[1].caption} style={{ width: "200px" }}/>
+            <img
+              src={images[1].url}
+              alt={images[1].caption}
+              style={{ width: "200px" }}
+            />
           </div>
         ) : (
           <div className="slide active">
-            <img src={images[0].url} alt={images[0].caption} style={{ width: "200px" }}/>
+            <img
+              src={images[0].url}
+              alt={images[0].caption}
+              style={{ width: "200px" }}
+            />
           </div>
         )}
       </div>
-      <NavigateNextIcon className="next-btn" onClick={toggleNextImage}/>
+      <NavigateNextIcon className="next-btn" onClick={toggleNextImage} />
     </div>
   );
 };
