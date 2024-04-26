@@ -25,10 +25,11 @@ const PostItem: React.FC<PostObject> = ({
     votes.forEach((vote) => {
       vote.type === "upvote" ? upvoteCount++ : downvoteCount++;
     });
+    console.log(upvoteCount, downvoteCount)
     return (
       <div className="vote-encasing">
         <ArrowUpwardIcon sx={{ color: "white" }} />
-        {upvoteCount > downvoteCount && (
+        {upvoteCount >= downvoteCount && (
           <span className="vote-count">{upvoteCount}</span>
         )}
         <ArrowDownwardIcon sx={{ color: "white" }} />
