@@ -14,7 +14,7 @@ const PostItem: React.FC<PostObject> = ({
   postText,
   tags,
   images,
-  videos,
+  // videos,
   comments,
   votes,
   createdAt
@@ -75,39 +75,50 @@ const PostItem: React.FC<PostObject> = ({
         postAuthor.avatar,
         createdAt
       )}
-      <div className="post">
-        <h2 className="post-title">{postText.title}</h2>
-        <p className="post-description">{postText.body}</p>
-        <br />
-        <p className="post-tag-encasing">
-          <LocalOfferIcon />
-          <div className="post-tag-text">
-            {tags.mainTags.map((mainTag, index) => (
-              <span key={index} className="main-tag">
-                {mainTag}{" "}
-              </span>
-            ))}
-            {tags.subTag.map((subTag, index) => (
-              <span key={index} className="sub-tag">
-                {subTag}{" "}
-              </span>
-            ))}
-          </div>
-        </p>
-        <br />
-        <div>
-          {images?.map((image, index) => (
-            <div key={index}>
-              <img
-                src={image.url}
-                alt={image.caption}
-                style={{ width: "300px" }}
-              />
+      <div className="post-section">
+        <div className="post-header">
+          <div className="post-content">
+            <h2 className="post-title">{postText.title}</h2>
+            <p className="post-description">{postText.body}</p>
+            <br />
+            <p className="post-tag-encasing">
+              <LocalOfferIcon />
+              <div className="post-tag-text">
+                {tags.mainTags.map((mainTag, index) => (
+                  <span key={index} className="main-tag">
+                    {mainTag}{" "}
+                  </span>
+                ))}
+                {tags.subTag.map((subTag, index) => (
+                  <span key={index} className="sub-tag">
+                    {subTag}{" "}
+                  </span>
+                ))}
+              </div>
+            </p>
+            <div className="post-votes-and-comments-section">
+              {renderVoteSection(votes || [])}
+              {renderCommentSection(comments || [])}
             </div>
-          ))}
+          </div>
+          <div className="post-images">
+            <img
+              src={images[0].url}
+              alt={images[0].caption}
+              style={{ width: "200px" }}
+            />
+            {/* {images?.map((image, index) => (
+              <div key={index}>
+                <img
+                  src={image.url}
+                  alt={image.caption}
+                  style={{ width: "300px" }}
+                />
+              </div>
+            ))} */}
+          </div>
         </div>
-        <br />
-        <div>
+        {/* <div>
           {videos?.map((video, index) => (
             <div key={index}>
               <p>This video does not work for some reason.</p>
@@ -122,12 +133,7 @@ const PostItem: React.FC<PostObject> = ({
               <p>{video.caption}</p>
             </div>
           ))}
-        </div>
-        <br />
-        <div className="post-votes-and-comments-section">
-          {renderVoteSection(votes || [])}
-          {renderCommentSection(comments || [])}
-        </div>
+        </div> */}
       </div>
     </div>
   );
