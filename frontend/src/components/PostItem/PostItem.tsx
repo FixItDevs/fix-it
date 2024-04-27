@@ -2,14 +2,13 @@
 
 import React from "react";
 import "./PostItem.css";
-import { PostObject, Vote, Comment } from "../../types/post.types";
+import { PostObject, Vote, Comment, Image } from "../../types/post.types";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import ImageCarousel from "../ImageCarousel/ImageCarousel";
 import DefaultAvatar from "../../assets/default-avatar.svg";
 
 const PostItem: React.FC<PostObject> = ({
@@ -73,6 +72,25 @@ const PostItem: React.FC<PostObject> = ({
     );
   };
 
+  const renderImageSection = (images: Image[]) => {
+    return (
+      <div className="image-container">
+        {images.length === 1 ? (
+          <img src={images[0].url} alt={images[0].caption} className="image" />
+        ) : (
+          <div className="multi-image-container">
+            <img
+              src={images[0].url}
+              alt={images[0].caption}
+              className="image"
+            />
+            <div className="image-counter-overlay">{images.length}</div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="post-container">
       {renderAvatarUsernameSection(
@@ -107,12 +125,8 @@ const PostItem: React.FC<PostObject> = ({
             </div>
           </div>
           <div className="post-images">
-            {/* <img
-              src={images[0].url}
-              alt={images[0].caption}
-              style={{ width: "200px" }}
-            /> */}
-            <ImageCarousel images={images} />
+            {/* <ImageCarousel images={images} /> */}
+            {renderImageSection(images)}
           </div>
         </div>
         {/* <div>

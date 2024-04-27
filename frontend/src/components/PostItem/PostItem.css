@@ -57,6 +57,29 @@
   font-size: 0.9rem;
 }
 
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image {
+  width: 15rem;
+}
+
+.multi-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-counter-overlay {
+  position: absolute;
+  bottom: 0.22rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 0.2rem 0.4rem 0.1rem;
+  border-radius: 0.4rem;
+}
+
 .vote-encasing {
   display: flex;
   align-items: center;
