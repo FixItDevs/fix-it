@@ -1,3 +1,5 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import React from "react";
 import "./PostItem.css";
 import { PostObject, Vote, Comment } from "../../types/post.types";
@@ -9,6 +11,7 @@ import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
+// import DefaultAvatar from "../../assets/default-avatar.svg?react";
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
@@ -84,6 +87,7 @@ const PostItem: React.FC<PostObject> = ({
             <br />
             <p className="post-tag-encasing">
               <LocalOfferIcon />
+              {/* <DefaultAvatar /> */}
               <div className="post-tag-text">
                 {tags.mainTags.map((mainTag, index) => (
                   <span key={index} className="main-tag">
