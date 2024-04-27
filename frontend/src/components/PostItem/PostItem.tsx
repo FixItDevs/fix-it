@@ -124,9 +124,7 @@ const PostItem: React.FC<PostObject> = ({
               {renderCommentSection(comments || [])}
             </div>
           </div>
-          <div className="post-images">
-            {renderImageSection(images)}
-          </div>
+          <div className="post-images">{renderImageSection(images)}</div>
         </div>
         {/* <div>
           {videos?.map((video, index) => (
