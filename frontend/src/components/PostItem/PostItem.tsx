@@ -125,7 +125,6 @@ const PostItem: React.FC<PostObject> = ({
             </div>
           </div>
           <div className="post-images">
-            {/* <ImageCarousel images={images} /> */}
             {renderImageSection(images)}
           </div>
         </div>
