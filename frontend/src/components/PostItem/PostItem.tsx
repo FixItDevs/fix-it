@@ -12,6 +12,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
 import DefaultAvatar from "../../assets/default-avatar.svg";
+import { Box } from "@mui/material";
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
@@ -63,7 +64,9 @@ const PostItem: React.FC<PostObject> = ({
         {avatar ? (
           <img src={avatar} alt="avatar" className="post-user-avatar" />
         ) : (
-          <AccountCircleIcon />
+          <Box sx={{ width: '2rem', height: '2rem'}}>
+            <DefaultAvatar />
+          </Box>
         )}
         <span className="post-username">{username || "user-name-here"}</span>
         <CircleIcon sx={{ width: "1rem", height: "0.2rem" }} />
@@ -87,7 +90,6 @@ const PostItem: React.FC<PostObject> = ({
             <br />
             <p className="post-tag-encasing">
               <LocalOfferIcon />
-              <DefaultAvatar />
               <div className="post-tag-text">
                 {tags.mainTags.map((mainTag, index) => (
                   <span key={index} className="main-tag">

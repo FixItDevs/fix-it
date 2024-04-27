@@ -2,6 +2,41 @@ import { ChildProcess } from "child_process";
 
 export const postSeedData = [
   {
+    _id: '662953ff6918918c0ab72d73',
+    postAuthor: {
+      userId: '662640880f468f628d71ea48',
+      username: 'Sally',
+    },
+    postText: { 
+      title: 'I love burgers!',
+      body: "Sally has an undeniable fondness for a meticulously crafted burger, where each layer of succulent beef, melty cheese, crisp lettuce, and juicy tomatoes harmonize into a symphony of flavors that tantalize her taste buds."
+    },
+    tags: {
+      mainTags: ['food'],
+      subTag: ['burgers', 'meaty']
+    },
+    images: [{
+      url: 'https://pbs.twimg.com/media/Dh0cuiYXUAA14b9?format=jpg&name=4096x4096',
+      caption: 'big fat meaty burger'
+    }],
+    comments: [
+      {
+      commentAuthor: {
+        userId: '662640880f468f628d71ea49',
+        username: 'Bob',
+        avatar: 'https://assets-prd.ignimgs.com/2024/01/25/bob-the-builder-button-1706221996136.jpg'
+      },
+      commentText: "You are the King!",
+      },
+    ],
+    votes: [
+      {
+      user: '662640880f468f628d71ea49',
+      type: 'upvote'
+    }
+    ]
+  },
+  {
     _id: '662953ff6918918c0ab72d70',
     postAuthor: {
       userId: '662641ab06a547c6c7f10dc7',

@@ -13,7 +13,7 @@ const postModel = new mongoose.Schema({
     },
     avatar: {
       type: String,
-      required: true
+      required: false
     }
   },
   postText: { 
