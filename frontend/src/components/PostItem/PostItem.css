@@ -63,7 +63,8 @@
 }
 
 .image {
-  width: 15rem;
+  max-width: 15rem;
+  max-height: 15rem;
   border-radius: 1.3rem;
 }
 
