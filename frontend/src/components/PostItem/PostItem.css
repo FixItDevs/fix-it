@@ -64,6 +64,7 @@
 
 .image {
   width: 15rem;
+  border-radius: 1.3rem;
 }
 
 .multi-image-container {
