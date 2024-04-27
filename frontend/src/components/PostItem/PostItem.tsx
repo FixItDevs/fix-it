@@ -6,7 +6,7 @@ import { PostObject, Vote, Comment } from "../../types/post.types";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
@@ -64,7 +64,7 @@ const PostItem: React.FC<PostObject> = ({
         {avatar ? (
           <img src={avatar} alt="avatar" className="post-user-avatar" />
         ) : (
-          <Box sx={{ width: '2rem', height: '2rem'}}>
+          <Box sx={{ width: "2rem", height: "2rem" }}>
             <DefaultAvatar />
           </Box>
         )}
