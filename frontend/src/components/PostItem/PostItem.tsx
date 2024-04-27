@@ -62,7 +62,7 @@ const PostItem: React.FC<PostObject> = ({
         {avatar ? (
           <img src={avatar} alt="avatar" className="post-user-avatar" />
         ) : (
-          <div className="post-default-avatar">
+          <div>
             <DefaultAvatar />
           </div>
         )}
