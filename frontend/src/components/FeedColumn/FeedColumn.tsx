@@ -8,21 +8,20 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const FeedColumn = () => {
   const [feedPosts, setFeedPosts] = useState<PostObject[]>([]);
   const [hasMore, setHasMore] = useState(true);
-  const [index, setIndex] = useState(2);
 
   async function getPosts() {
-    try {
-      const response = await axios.get(
-        `http://localhost:3000/api/v1.0/posts?offset=${index * 5}&limit=5`
-      );
-      if (response.status !== 200) {
-        throw new Error("Error in network response");
-      }
-      const posts = response.data;
-      setFeedPosts(posts);
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
+    axios
+      .get('http://localhost:3000/api/v1.0/posts', {
+        params: {
+          _limit: 5
+        }
+      })
+      .then((res) => {
+        const posts = res.data;
+        console.log('getPosts:', posts)
+        setFeedPosts(posts);
+      })
+      .catch((error) => console.log(error))
   }
 
   useEffect(() => {
@@ -31,11 +30,16 @@ const FeedColumn = () => {
 
   const fetchMorePostData = () => {
     axios
-      .get(`http://localhost:3000/api/v1.0/posts?offset=${index * 5}&limit=5`)
+      .get(`http://localhost:3000/api/v1.0/posts`, {
+        params: {
+          offset: feedPosts.length,
+          _limit: 5
+        }
+      })
       .then((res) => {
         if (res.data.length > 0) {
           setFeedPosts((prevPosts) => [...prevPosts, ...res.data]);
-          setIndex((prevIndex) => prevIndex + 1);
+          console.log('fetchMorePosts:', feedPosts)
         } else {
           setHasMore(false);
         }
