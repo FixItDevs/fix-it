@@ -36,6 +36,10 @@ export default function Navbar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleSearch = () => {
+    console.log("search placeholder");
+  };
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -112,7 +116,7 @@ export default function Navbar() {
             >
               FixIt
             </Typography>
-            <SearchBar />
+            <SearchBar onSearch={handleSearch} />
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <IconButton

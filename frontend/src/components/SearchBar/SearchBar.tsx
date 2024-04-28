@@ -5,7 +5,7 @@ import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 
 export interface SearchBarProps {
-  setSearchInput: (searchInput: string) => void;
+  onSearch: (searchInput: string) => void;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = () => {
