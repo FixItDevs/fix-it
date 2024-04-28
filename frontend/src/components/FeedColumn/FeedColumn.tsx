@@ -11,17 +11,17 @@ const FeedColumn = () => {
 
   async function getPosts() {
     axios
-      .get('http://localhost:3000/api/v1.0/posts', {
+      .get("http://localhost:3000/api/v1.0/posts", {
         params: {
           _limit: 5
         }
       })
       .then((res) => {
         const posts = res.data;
-        console.log('getPosts:', posts)
+        console.log("getPosts:", posts);
         setFeedPosts(posts);
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   }
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const FeedColumn = () => {
       .then((res) => {
         if (res.data.length > 0) {
           setFeedPosts((prevPosts) => [...prevPosts, ...res.data]);
-          console.log('fetchMorePosts:', feedPosts)
+          console.log("fetchMorePosts:", feedPosts);
         } else {
           setHasMore(false);
         }
