@@ -8,6 +8,14 @@ export interface SearchBarProps {
 }
 
 export const SearchBar: React.FC<SearchBarProps> = () => {
+  // axios request
+  // get by search param
+  // filter in the title and description or tags 
+  // return the result
+  function handleSearch() {
+    console.log('search handling')
+  }
+
   return (
     <div className="search-bar-container">
       <SearchIcon />
@@ -16,6 +24,7 @@ export const SearchBar: React.FC<SearchBarProps> = () => {
         placeholder="Search..."
         variant="standard"
         InputProps={{ disableUnderline: true }}
+        onKeyDown={() => handleSearch()}
       />
     </div>
   );
