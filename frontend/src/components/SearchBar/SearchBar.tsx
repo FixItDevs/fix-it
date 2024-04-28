@@ -1,19 +1,29 @@
-import SearchIcon from "@mui/icons-material/Search";
 import { TextField } from "@mui/material";
 // import { useState } from "react";
 import "./SearchBar.css";
+import axios from "axios";
+import SearchIcon from "@mui/icons-material/Search";
 
 export interface SearchBarProps {
-  // setSearchQuery: boolean;
+  // setSearchQuery: (searchQuery: string) => void;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = () => {
-  // axios request
-  // get by search param
-  // filter in the title and description or tags
-  // return the result
+  // [searchQuery, setSearchQuery] = useState('')
+  const searchQuery = "garden";
+
   function handleSearch() {
-    console.log("search handling");
+    axios
+      .get("http://localhost:3000/api/v1.0/posts/search", {
+        params: {
+          searchInput: searchQuery
+        }
+      })
+      .then((res) => {
+        const posts = res.data;
+        console.log(posts);
+      })
+      .catch((error) => console.log(error));
   }
 
   return (
