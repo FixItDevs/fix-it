@@ -10,10 +10,10 @@ export interface SearchBarProps {
 export const SearchBar: React.FC<SearchBarProps> = () => {
   // axios request
   // get by search param
-  // filter in the title and description or tags 
+  // filter in the title and description or tags
   // return the result
   function handleSearch() {
-    console.log('search handling')
+    console.log("search handling");
   }
 
   return (

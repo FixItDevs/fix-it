@@ -63,7 +63,12 @@ export const getPostsBySearchQuery = async (req: Request, res: Response, next: N
 
     searchQuery = typeof searchQuery === 'string' ? searchQuery : '';
     
-    const posts = await Post.find({ 'postText.title': { "$regex": searchQuery, "$options": "i"}});
+    const posts = await Post.find({
+      $or: [
+        {'postText.title': { "$regex": searchQuery, "$options": "i"}},
+        {'postText.body': { "$regex": searchQuery, "$options": "i"}},
+      ]
+      });
     res.status(200).json(posts);
   } catch (error) {
     next(error);
