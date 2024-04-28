@@ -1,22 +1,27 @@
 import { TextField } from "@mui/material";
-// import { useState } from "react";
+import { useState } from "react";
 import "./SearchBar.css";
 import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 
 export interface SearchBarProps {
-  // setSearchQuery: (searchQuery: string) => void;
+  setSearchInput: (searchInput: string) => void;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = () => {
-  // [searchQuery, setSearchQuery] = useState('')
-  const searchTerm = "garden";
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearchInput = () => {
+    setSearchInput(event?.target.value);
+    console.log("searchInput:", searchInput);
+    handleSearch();
+  };
 
   function handleSearch() {
     axios
       .get("http://localhost:3000/api/v1.0/posts/search", {
         params: {
-          searchQuery: searchTerm
+          searchQuery: searchInput
         }
       })
       .then((res) => {
@@ -34,7 +39,8 @@ export const SearchBar: React.FC<SearchBarProps> = () => {
         placeholder="Search..."
         variant="standard"
         InputProps={{ disableUnderline: true }}
-        onKeyDown={() => handleSearch()}
+        onChange={handleSearchInput}
+        value={searchInput}
       />
     </div>
   );
