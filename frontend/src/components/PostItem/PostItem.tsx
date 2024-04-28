@@ -104,7 +104,7 @@ const PostItem: React.FC<PostObject> = ({
             <h2 className="post-title">{postText.title}</h2>
             <p className="post-description">{postText.body}</p>
             <br />
-            <p className="post-tag-encasing">
+            <div className="post-tag-encasing">
               <LocalOfferIcon />
               <div className="post-tag-text">
                 {tags.mainTags.map((mainTag, index) => (
@@ -118,7 +118,7 @@ const PostItem: React.FC<PostObject> = ({
                   </span>
                 ))}
               </div>
-            </p>
+            </div>
             <div className="post-votes-and-comments-section">
               {renderVoteSection(votes || [])}
               {renderCommentSection(comments || [])}
