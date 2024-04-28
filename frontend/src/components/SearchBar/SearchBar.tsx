@@ -14,10 +14,10 @@ export const SearchBar: React.FC<SearchBarProps> = () => {
   const handleSearchInput = () => {
     setSearchInput(event?.target.value);
     console.log("searchInput:", searchInput);
-    handleSearch();
+    fetchFilteredPosts();
   };
 
-  function handleSearch() {
+  function fetchFilteredPosts() {
     axios
       .get("http://localhost:3000/api/v1.0/posts/search", {
         params: {
