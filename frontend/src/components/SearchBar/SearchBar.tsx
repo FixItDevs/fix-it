@@ -10,13 +10,13 @@ export interface SearchBarProps {
 
 export const SearchBar: React.FC<SearchBarProps> = () => {
   // [searchQuery, setSearchQuery] = useState('')
-  const searchQuery = "garden";
+  const searchTerm = "garden";
 
   function handleSearch() {
     axios
       .get("http://localhost:3000/api/v1.0/posts/search", {
         params: {
-          searchInput: searchQuery
+          searchQuery: searchTerm
         }
       })
       .then((res) => {
