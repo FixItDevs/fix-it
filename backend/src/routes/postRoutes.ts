@@ -7,7 +7,7 @@ router.get('/', postController.getAllPosts);
 
 router.get('/tag', postController.getPostsByTag);
 
-router.get('/searchQuery', postController.getPostsBySearchQuery);
+router.get('/search', postController.getPostsBySearchQuery);
 
 router.post('/', postController.addPost);
 
