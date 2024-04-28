@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import "./SearchBar.css";
 import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,8 +11,8 @@ export interface SearchBarProps {
 export const SearchBar: React.FC<SearchBarProps> = () => {
   const [searchInput, setSearchInput] = useState("");
 
-  const handleSearchInput = () => {
-    setSearchInput(event?.target.value);
+  const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e?.target.value);
     console.log("searchInput:", searchInput);
     fetchFilteredPosts();
   };
