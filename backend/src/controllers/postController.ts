@@ -3,11 +3,12 @@ import Post from '../models/postModel';
 
 export const getAllPosts = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { offset = 0, _limit = 10 } = req.query
+    const { offset, limit } = req.query
+    console.log("offset:", offset, "limit:", limit)
 
     const rawPosts = await Post.find()
       .skip(Number(offset))
-      .limit(Number(_limit));
+      .limit(Number(limit));
 
     const posts = rawPosts.map(post => {
       const { _id, ...rest } = post.toObject();

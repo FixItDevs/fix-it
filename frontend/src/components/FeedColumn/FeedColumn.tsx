@@ -13,7 +13,8 @@ const FeedColumn = () => {
     axios
       .get("http://localhost:3000/api/v1.0/posts", {
         params: {
-          _limit: 5
+          offset: 0,
+          limit: 5
         }
       })
       .then((res) => {
@@ -29,17 +30,21 @@ const FeedColumn = () => {
   }, []);
 
   const fetchMorePostData = () => {
+    console.log("fetching More Posts - has more?:", hasMore);
     axios
       .get(`http://localhost:3000/api/v1.0/posts`, {
         params: {
           offset: feedPosts.length,
-          _limit: 5
+          limit: 5
         }
       })
       .then((res) => {
         if (res.data.length > 0) {
           setFeedPosts((prevPosts) => [...prevPosts, ...res.data]);
           console.log("fetchMorePosts:", feedPosts);
+          if (res.data.length < 5) {
+            setHasMore(false);
+          }
         } else {
           setHasMore(false);
         }
@@ -76,6 +81,7 @@ const FeedColumn = () => {
           ))}
         </InfiniteScroll>
       </div>
+      <button onClick={fetchMorePostData}>Load More</button>
       <div className="footer-bit"></div>
     </div>
   );
