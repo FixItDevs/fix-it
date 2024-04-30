@@ -63,8 +63,9 @@ const FeedColumn = () => {
           hasMore={hasMore}
           loader={<h4>Loading...</h4>}
         >
-          {feedPosts.map((post: PostObject) => (
-            <div key={post.postId}>
+          {/* INDEX USED AS KEY TEMPORARILY */}
+          {feedPosts.map((post: PostObject, index: number) => (
+            <div key={index}>
               <PostItem
                 postId={post.postId}
                 postAuthor={post.postAuthor}
