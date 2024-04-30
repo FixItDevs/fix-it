@@ -16,8 +16,8 @@ const replySchema = new mongoose.Schema({
     }
   },
   replyText: { type: String },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
+}, {
+  timestamps: true
 });
 
 const commentSchema = new mongoose.Schema({
@@ -37,8 +37,8 @@ const commentSchema = new mongoose.Schema({
   },
   commentText: { type: String },
   replies: [replySchema],
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
+}, {
+  timestamps: true
 });
 
 const postModel = new mongoose.Schema({
