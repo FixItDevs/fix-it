@@ -1,7 +1,33 @@
-.sign-up-benefits-container {
-  display: flex;
+.benefits-container {
   min-height: 93vh;
   background-color: var(--primary-background);
-  padding: 20px 30px;
-  border-left: 1px solid #ccc;
+  border-left: 0.1rem solid #ccc;
+}
+
+.benefits-title {
+  display: flex;
+  font-size: 1.6rem;
+  justify-content: center;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  cursor: pointer;
+}
+
+.benefits-encasing {
+  display: flex;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.benefits-encasing:hover {
+  background-color: #f0f0f0;
+}
+
+.hardware-icon {
+  padding-right: 0.5rem;
+}
+
+.benefits-text {
+  text-align: left;
+  font-size: 0.9rem;
 }
