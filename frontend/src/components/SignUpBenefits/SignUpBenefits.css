@@ -1,10 +1,10 @@
-.sign-up-benefits-container {
+.benefits-container {
   min-height: 93vh;
   background-color: var(--primary-background);
   border-left: 0.1rem solid #ccc;
 }
 
-.sign-up-title {
+.benefits-title {
   display: flex;
   font-size: 1.6rem;
   justify-content: center;
@@ -13,13 +13,13 @@
   cursor: pointer;
 }
 
-.sign-up-benefit-encasing {
+.benefits-encasing {
   display: flex;
   padding: 1rem;
   cursor: pointer;
 }
 
-.sign-up-benefit-encasing:hover {
+.benefits-encasing:hover {
   background-color: #f0f0f0;
 }
 
@@ -27,7 +27,7 @@
   padding-right: 0.5rem;
 }
 
-.benefit-text {
+.benefits-text {
   text-align: left;
   font-size: 0.9rem;
 }

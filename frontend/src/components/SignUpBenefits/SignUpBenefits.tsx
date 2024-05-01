@@ -15,20 +15,20 @@ const SignUpBenefits = () => {
   };
 
   return (
-    <div className="sign-up-benefits-container">
-      <span className="sign-up-title" onClick={() => handleSignUpClick()}>
+    <div className="benefits-container">
+      <span className="benefits-title" onClick={() => handleSignUpClick()}>
         Sign up today!
       </span>
       {benefits.map((benefit) => (
         <div
           key={benefit}
-          className="sign-up-benefit-encasing"
+          className="benefits-encasing"
           onClick={() => handleSignUpClick()}
         >
           <div className="hardware-icon">
             <HardwareIcon />
           </div>
-          <div className="benefit-text">{benefit}</div>
+          <div className="benefits-text">{benefit}</div>
         </div>
       ))}
     </div>
