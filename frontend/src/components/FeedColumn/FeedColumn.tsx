@@ -27,8 +27,7 @@ const FeedColumn = () => {
 
   return (
     <div className="feed-col-container">
-      <h1 className="feed-title">I am a dummy title by the way</h1>
-
+      <h1 className="feed-title">FixIt news feed</h1>
       <div className="main-feed-container">
         {feedPosts.map((post: PostObject) => (
           <div key={post.postId}>
