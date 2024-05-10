@@ -1,15 +1,7 @@
 .post-container {
+  display: flex;
   padding-bottom: 0.6rem;
   padding-top: 0.3rem;
-}
-
-.post-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.post-content {
-  padding-right: 1rem;
 }
 
 .post-title {
@@ -19,15 +11,13 @@
   color: var(--dark-green);
 }
 
-.post-body {
-  font-size: 1.1rem;
-  font-weight: 300;
+.post-tag-comment-vote-container {
+  display: flex;
+  align-items: center;
 }
 
 .post-votes-and-comments-section {
   display: flex;
-  padding-top: 0.8rem;
-  padding-bottom: 0.2rem;
 }
 
 .post-votes-and-comments-section > div {
@@ -114,7 +104,7 @@
 
 .post-tag-encasing {
   display: flex;
-  align-items: center;
+  margin-left: 0.5rem;
 }
 
 .main-tag,
