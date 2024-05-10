@@ -15,7 +15,7 @@ import org.openqa.selenium.OutputType;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.TakesScreenshot;
 
-public class MainFeedPage1500pxTest {
+public class MainFeed1500pxTest {
     private static ChromeDriver driver;
     private static ProjectsPage projectsPage;
     private static Navbar navbar;
@@ -38,7 +38,7 @@ public class MainFeedPage1500pxTest {
 
     @BeforeEach
     void loadProjectsPage() {
-        projectsPage.navigate("deployed", "threeColumns");
+        projectsPage.navigate("deployed", "large");
     }
 
 
