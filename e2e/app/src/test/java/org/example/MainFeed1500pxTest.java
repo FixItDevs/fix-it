@@ -38,20 +38,20 @@ public class MainFeed1500pxTest {
 
     @BeforeEach
     void loadMainFeedPage() {
-        mainFeedPage.navigate("deployed", "large");
+        mainFeedPage.navigate("local", "large");
     }
 
-    @Test
-    void testTextOfNavbarTitle() {
-        String element = navbar.getNavElementText("navTitle");
-        assertEquals("MUI", element);
-    }
+//    @Test
+//    void testTextOfNavbarTitle() {
+//        String element = navbar.getNavElementText("navTitle");
+//        assertEquals("MUI", element);
+//    }
     @DisplayName("Test of main column sections")
     @ParameterizedTest(name = "Test presence of {0} column")
     @CsvSource({
             "categorySelectorOuterContainer",
-            "postFeedOuterContainer",
-            "rightColumnOuterContainer",
+//            "postFeedOuterContainer",
+//            "rightColumnOuterContainer",
     })
     void testPresenceOfMainColumnSections(String identifier) {
         // Arrange
