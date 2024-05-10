@@ -1,12 +1,16 @@
 import "./FeedColumn.css";
 import PostItem from "../PostItem/PostItem";
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import { PostObject } from "../../types/post.types";
 import axios from "axios";
 import baseUrl from "../../utils/baseUrl";
+import PostContext from "../../context/PostContext";
 
 const FeedColumn = () => {
-  const [feedPosts, setFeedPosts] = useState<PostObject[]>([]);
+  const contextValue = useContext(PostContext);
+
+  const feedPosts = contextValue?.feedPosts;
+  const setFeedPosts = contextValue?.setFeedPosts;
 
   async function getPosts() {
     try {
@@ -15,7 +19,7 @@ const FeedColumn = () => {
         throw new Error("Error in network response");
       }
       const posts = response.data;
-      setFeedPosts(posts);
+      setFeedPosts && setFeedPosts(posts);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -29,7 +33,7 @@ const FeedColumn = () => {
     <div className="feed-col-container">
       <h1 className="feed-title">FixIt news feed</h1>
       <div className="main-feed-container">
-        {feedPosts.map((post: PostObject) => (
+        {feedPosts && feedPosts.map((post: PostObject) => (
           <div key={post.postId}>
             <PostItem
               postId={post.postId}
