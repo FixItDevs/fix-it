@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="d119c9c6-e0ee-49fb-9235-0da848569dd5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/e2e/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="0de3aaad-2e10-4d63-b397-b7b7718a080c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/e2e/app/bin/main/org/example/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/app/bin/test/org/example/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/app/bin/test/org/example/MainFeed1500pxTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/app/bin/test/org/example/MainFeedPage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/app/bin/test/org/example/Navbar.class" afterDir="false" />
+>>>>>>> pj/feat/e2e-test-suite
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +27,11 @@
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 4
 }]]></component>
+<<<<<<< HEAD
   <component name="ProjectId" id="2gHhPiyvy3EFV38hOzdIj9SYAa6" />
+=======
+  <component name="ProjectId" id="2gHcR68mjbCfPWU0ZUh5vioLpTQ" />
+>>>>>>> pj/feat/e2e-test-suite
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -27,12 +40,17 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+<<<<<<< HEAD
     "git-widget-placeholder": "pablisch-patch-1",
+=======
+    "git-widget-placeholder": "pj/feat/e2e-test-suite",
+>>>>>>> pj/feat/e2e-test-suite
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+<<<<<<< HEAD
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -52,4 +70,21 @@
     </task>
     <servers />
   </component>
+=======
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0de3aaad-2e10-4d63-b397-b7b7718a080c" name="Changes" comment="" />
+      <created>1715357932001</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715357932001</updated>
+      <workItem from="1715357933205" duration="4000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+>>>>>>> pj/feat/e2e-test-suite
 </project>
