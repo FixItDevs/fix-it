@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainFeedPage {
     protected WebDriver driver;
-    private final By categorySelectorOuterContainerBy = By.cssSelector("div[class='categories-selector-wrapper']");
+    private final By categorySelectorOuterContainerBy = By.cssSelector("div[class='category-selector-wrapper']");
     private final By postFeedOuterContainerBy = By.cssSelector("div[class='feed-column-wrapper']");
     private final By rightColumnOuterContainerBy = By.cssSelector("div[class='signup-benefits-wrapper']");
 
@@ -19,13 +19,13 @@ public class MainFeedPage {
         this.driver = driver;
     }
 
-    public int getScreenWidth(String screenSize) {
-        return switch (screenSize) {
-            case "large" -> 1464;
-            case "medium" -> 910;
+    public int getScreenWidth(String screenWidth) {
+        return switch (screenWidth) {
+            case "large" -> 1500;
+            case "medium" -> 1000;
             case "small" -> 500;
 
-            default -> throw new IllegalArgumentException("Invalid screenSize value: " + screenSize);
+            default -> throw new IllegalArgumentException("Invalid screenWidth value: " + screenWidth);
         };
     }
     public String getPageUrl(String localOrDeployed) {
@@ -37,9 +37,9 @@ public class MainFeedPage {
         };
     }
 
-    public void navigate(String localOrDeployed, String numOfColumns) {
+    public void navigate(String localOrDeployed, String screenWidth) {
         driver.get(getPageUrl(localOrDeployed));
-        driver.manage().window().setSize(new Dimension(getScreenWidth(numOfColumns), 936));
+        driver.manage().window().setSize(new Dimension(getScreenWidth(screenWidth), 936));
     }
     public String getPageTitle() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));

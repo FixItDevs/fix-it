@@ -17,7 +17,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class MainFeed1500pxTest {
     private static ChromeDriver driver;
-    private static ProjectsPage projectsPage;
+    private static MainFeedPage mainFeedPage;
     private static Navbar navbar;
 
     @BeforeAll
@@ -31,93 +31,31 @@ public class MainFeed1500pxTest {
         }
 
         driver = new ChromeDriver(options);
-        projectsPage = new ProjectsPage(driver);
+        mainFeedPage = new MainFeedPage(driver);
         navbar = new Navbar(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
     }
 
     @BeforeEach
-    void loadProjectsPage() {
-        projectsPage.navigate("deployed", "large");
+    void loadMainFeedPage() {
+        mainFeedPage.navigate("deployed", "large");
     }
 
-
-    @DisplayName("Test text of navbar project section link buttons")
-    @ParameterizedTest(name = "Test text of {0} is {1}")
-    @CsvSource({
-            "navLupoBtn, LUPO",
-            "navGalleryBtn, Gallery App",
-            "navFarcebookBtn, Farce Book",
-            "navKnotBtn, Knot Very Useful",
-            "navAlternativeBtn, Alter Native Routes",
-            "navEclipseBtn, Eclipse Battle Calc",
-    })
-    void testNavElementText(String identifier, String expectedText) throws Exception {
-        // Arrange
-        takeScreenshot(driver, "screenshots/testNavElementText_" + identifier + ".png");
-        String element = navbar.getNavElementText(identifier);
-        // Assert
-        assertEquals(expectedText, element);
-    }
     @Test
-    void testTextOfMoreAboutMeLinkButton() {
-        String element = navbar.getNavElementText("navAboutSectionBtn");
-        assertEquals("More About Me", element);
+    void testTextOfNavbarTitle() {
+        String element = navbar.getNavElementText("navTitle");
+        assertEquals("MUI", element);
     }
-    @DisplayName("Test absence of navbar about section link buttons")
-    @ParameterizedTest(name = "Test presence of {0} image")
+    @DisplayName("Test of main column sections")
+    @ParameterizedTest(name = "Test presence of {0} column")
     @CsvSource({
-            "navSpaceBtn",
-            "navForestBtn",
-            "navStemBtn",
-            "navFsBtn",
-            "navFurnitureBtn",
-            "navCuriosityBtn"
+            "categorySelectorOuterContainer",
+            "postFeedOuterContainer",
+            "rightColumnOuterContainer",
     })
-    void testAbsenceOfAboutSectionLinks(String identifier) {
+    void testPresenceOfMainColumnSections(String identifier) {
         // Arrange
-        boolean isPresent = navbar.checkPresenceOfElement(identifier);
-        // Assert
-        assertFalse(isPresent);
-    }
-    @Test
-    void testNavSectionTitleText() {
-        // Arrange
-        String identifier = "navSectionTitle";
-        String element = navbar.getNavElementText(identifier);
-        // Assert
-        assertEquals("My Projects", element);
-    }
-    @DisplayName("Test presence of nav logo and nav icons")
-    @ParameterizedTest(name = "Test presence of {0} nav image")
-    @CsvSource({
-            "navLogo",
-            "githubBtnLogo",
-            "linkedinBtnLogo",
-            "SettingsBtnLogo",
-    })
-//    @Test
-    void testPresenceOfNavLogoAndIconImages(String identifier) throws Exception {
-        // Arrange
-//        String identifier = "navLogo";
-        takeScreenshot(driver, "testPresenceOfNavIconImage_" + identifier + ".png");
-        boolean isPresent = navbar.checkPresenceOfExpectedElement(identifier);
-        // Assert
-        assertTrue(isPresent);
-    }
-    @DisplayName("Test presence of main project image")
-    @ParameterizedTest(name = "Test presence of {0} image")
-    @CsvSource({
-            "lupoImage",
-            "galleryImage",
-            "farcebookImage",
-            "knotImage",
-            "alternativeImage",
-            "eclipseImage"
-    })
-    void testPresenceOfProjectMainImage(String identifier) {
-        // Arrange
-        boolean isPresent = projectsPage.checkPresenceOfElement(identifier);
+        boolean isPresent = mainFeedPage.checkPresenceOfElement(identifier);
         // Assert
         assertTrue(isPresent);
     }

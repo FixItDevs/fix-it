@@ -13,6 +13,7 @@ import java.time.Duration;
 public class Navbar {
     protected WebDriver driver;
     private final By navOuterContainerBy = By.cssSelector("div[class='css-i9gxme']");
+    private final By navTitleBy = By.cssSelector("div[class='MuiTypography-root MuiTypography-h6 MuiTypography-noWrap css-1futezt-MuiTypography-root']");
 
     public Navbar(WebDriver driver) {
         this.driver = driver;
@@ -21,6 +22,7 @@ public class Navbar {
     public By getElementBy(String identifier) {
         return switch (identifier) {
             case "navOuterContainer" -> navOuterContainerBy;
+            case "navTitle" -> navTitleBy;
 
             default -> throw new IllegalArgumentException("Invalid identifier: " + identifier);
         };
