@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.MainFeed1500pxTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-05-10T16:22:10" hostname="Pablos-Mac-Pro.cust.communityfibre.co.uk" time="4.065">
+  <properties/>
+  <testcase name="testTextOfNavbarTitle()" classname="org.example.MainFeed1500pxTest" time="1.686"/>
+  <testcase name="Test presence of categorySelectorOuterContainer column" classname="org.example.MainFeed1500pxTest" time="0.776"/>
+  <testcase name="Test presence of postFeedOuterContainer column" classname="org.example.MainFeed1500pxTest" time="0.765"/>
+  <testcase name="Test presence of rightColumnOuterContainer column" classname="org.example.MainFeed1500pxTest" time="0.772"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+May 10, 2024 5:22:10 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 124
+May 10, 2024 5:22:10 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 124.0.6367.156. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.15.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>
