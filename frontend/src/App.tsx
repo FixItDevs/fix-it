@@ -7,16 +7,16 @@ import { PostObject } from "./types/post.types";
 
 function App() {
   const [feedPosts, setFeedPosts] = useState<PostObject[]>([]);
-  
+
   return (
     <BrowserRouter>
-      <PostContext.Provider value={{feedPosts, setFeedPosts}}>
-      <div id="app">
-        <Navbar />
-        {/* <div className="navbar-spacer"></div> */}
-        <Routes>
-          <Route path="/" element={<FeedPage />} />
-        </Routes>
+      <PostContext.Provider value={{ feedPosts, setFeedPosts }}>
+        <div id="app">
+          <Navbar />
+          {/* <div className="navbar-spacer"></div> */}
+          <Routes>
+            <Route path="/" element={<FeedPage />} />
+          </Routes>
         </div>
       </PostContext.Provider>
     </BrowserRouter>
