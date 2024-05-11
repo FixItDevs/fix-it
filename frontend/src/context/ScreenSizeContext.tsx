@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import React from "react";
 
 type ScreenWidthContextType = {
-  screenWidth: number;
+  isSmallScreen: boolean;
 } | null;
 // type ScreenWidthContextType = {
 //   screenWidth: number;
@@ -20,6 +20,7 @@ export const ScreenWidthProvider = ({
   children: React.ReactNode;
 }) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,11 +32,16 @@ export const ScreenWidthProvider = ({
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [setScreenWidth]);
+
+  useEffect(() => {
+    if (screenWidth > 460) {
+      setIsSmallScreen(false);
+    } else setIsSmallScreen(true);
+  }, [screenWidth, setIsSmallScreen]);
 
   return (
-    // <ScreenWidthContext.Provider value={screenWidth}>
-    <ScreenWidthContext.Provider value={{ screenWidth }}>
+    <ScreenWidthContext.Provider value={{ isSmallScreen }}>
       {children}
     </ScreenWidthContext.Provider>
   );
