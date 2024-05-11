@@ -4,21 +4,24 @@ import Navbar from "./components/Navbar/Navbar";
 import PostContext from "./context/PostContext";
 import { useState } from "react";
 import { PostObject } from "./types/post.types";
+import { ScreenWidthProvider } from "./context/ScreenSizeContext";
 
 function App() {
   const [feedPosts, setFeedPosts] = useState<PostObject[]>([]);
 
   return (
     <BrowserRouter>
-      <PostContext.Provider value={{ feedPosts, setFeedPosts }}>
-        <div id="app">
-          <Navbar />
-          {/* <div className="navbar-spacer"></div> */}
-          <Routes>
-            <Route path="/" element={<FeedPage />} />
-          </Routes>
-        </div>
-      </PostContext.Provider>
+      <ScreenWidthProvider>
+        <PostContext.Provider value={{ feedPosts, setFeedPosts }}>
+          <div id="app">
+            <Navbar />
+            {/* <div className="navbar-spacer"></div> */}
+            <Routes>
+              <Route path="/" element={<FeedPage />} />
+            </Routes>
+          </div>
+        </PostContext.Provider>
+      </ScreenWidthProvider>
     </BrowserRouter>
   );
 }
