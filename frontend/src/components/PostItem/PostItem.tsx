@@ -10,6 +10,7 @@ import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DefaultAvatar from "../../assets/default-avatar.svg";
+import { useScreenWidth } from "../../context/ScreenSizeContext";
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
@@ -21,6 +22,9 @@ const PostItem: React.FC<PostObject> = ({
   votes,
   createdAt
 }) => {
+  const isSmallScreen = useScreenWidth();
+  console.log("is small screen:", isSmallScreen?.isSmallScreen);
+
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
     let downvoteCount = 0;
@@ -93,42 +97,83 @@ const PostItem: React.FC<PostObject> = ({
 
   return (
     <div className="post-container">
-      <div className="post-details">
-        {renderAvatarUsernameSection(
-          postAuthor.username,
-          postAuthor.avatar,
-          createdAt
-        )}
+      {!isSmallScreen?.isSmallScreen ? (
+        <>
+          <div className="post-details">
+            {renderAvatarUsernameSection(
+              postAuthor.username,
+              postAuthor.avatar,
+              createdAt
+            )}
 
-        <h2 className="post-title">{postText.title}</h2>
-        <p className="post-description">{postText.body}</p>
-        <br />
+            <h2 className="post-title">{postText.title}</h2>
+            <p className="post-description">{postText.body}</p>
+            <br />
 
-        <div className="post-tag-comment-vote-container">
-          <div className="post-votes-and-comments-section">
-            {renderVoteSection(votes || [])}
-            {renderCommentSection(comments || [])}
-          </div>
+            <div className="post-tag-comment-vote-container">
+              <div className="post-votes-and-comments-section">
+                {renderVoteSection(votes || [])}
+                {renderCommentSection(comments || [])}
+              </div>
 
-          <div className="post-tag-encasing">
-            <LocalOfferIcon />
-            <div className="post-tag-text">
-              {tags.mainTags.map((mainTag, index) => (
-                <span key={index} className="main-tag">
-                  {mainTag}{" "}
-                </span>
-              ))}
-              {tags.subTag.map((subTag, index) => (
-                <span key={index} className="sub-tag">
-                  {subTag}{" "}
-                </span>
-              ))}
+              <div className="post-tag-encasing">
+                <LocalOfferIcon />
+                <div className="post-tag-text">
+                  {tags.mainTags.map((mainTag, index) => (
+                    <span key={index} className="main-tag">
+                      {mainTag}{" "}
+                    </span>
+                  ))}
+                  {tags.subTag.map((subTag, index) => (
+                    <span key={index} className="sub-tag">
+                      {subTag}{" "}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="post-images">{renderImageSection(images)}</div>
+          <div className="post-images">{renderImageSection(images)}</div>
+        </>
+      ) : (
+        <>
+          <div className="post-header">
+            {renderAvatarUsernameSection(
+              postAuthor.username,
+              postAuthor.avatar,
+              createdAt
+            )}
+
+            <h2 className="post-title">{postText.title}</h2>
+            <p className="post-description">{postText.body}</p>
+            <br />
+          </div>
+          <div className="post-images">{renderImageSection(images)}</div>
+          <div className="post-tag-comment-vote-container">
+            <div className="post-votes-and-comments-section">
+              {renderVoteSection(votes || [])}
+              {renderCommentSection(comments || [])}
+            </div>
+
+            <div className="post-tag-encasing">
+              <LocalOfferIcon />
+              <div className="post-tag-text">
+                {tags.mainTags.map((mainTag, index) => (
+                  <span key={index} className="main-tag">
+                    {mainTag}{" "}
+                  </span>
+                ))}
+                {tags.subTag.map((subTag, index) => (
+                  <span key={index} className="sub-tag">
+                    {subTag}{" "}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -35,7 +35,7 @@ export const ScreenWidthProvider = ({
   }, [setScreenWidth]);
 
   useEffect(() => {
-    if (screenWidth > 460) {
+    if (screenWidth > 520) {
       setIsSmallScreen(false);
     } else setIsSmallScreen(true);
   }, [screenWidth, setIsSmallScreen]);
