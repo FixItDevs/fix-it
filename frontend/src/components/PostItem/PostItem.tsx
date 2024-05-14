@@ -10,7 +10,7 @@ import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DefaultAvatar from "../../assets/default-avatar.svg";
-import { useScreenWidth } from "../../context/ScreenSizeContext";
+import { useScreenWidth } from "../../hooks/useScreenWidth";
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
