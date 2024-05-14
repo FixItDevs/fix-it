@@ -10,6 +10,7 @@ import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DefaultAvatar from "../../assets/default-avatar.svg";
+import { abbreviateText } from "../../utils/postHelpers";
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
@@ -21,6 +22,8 @@ const PostItem: React.FC<PostObject> = ({
   votes,
   createdAt
 }) => {
+  const abbreviatedText = abbreviateText(postText.body, 40);
+
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
     let downvoteCount = 0;
@@ -102,7 +105,7 @@ const PostItem: React.FC<PostObject> = ({
         <div className="post-header">
           <div className="post-content">
             <h2 className="post-title">{postText.title}</h2>
-            <p className="post-description">{postText.body}</p>
+            <p className="post-description">{abbreviatedText}</p>
             <br />
             <div className="post-tag-encasing">
               <LocalOfferIcon />
