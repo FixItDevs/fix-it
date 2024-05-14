@@ -110,7 +110,7 @@ const PostItem: React.FC<PostObject> = ({
             )}
 
             <h2 className="post-title">{postText.title}</h2>
-            <p className="post-description">{postText.body}</p>
+            <p className="post-description">{abbreviatedText}</p>
             <br />
 
             <div className="post-tag-comment-vote-container">
