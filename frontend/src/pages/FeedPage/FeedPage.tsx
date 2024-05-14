@@ -2,13 +2,15 @@ import CategoriesSelectorList from "../../components/CategoriesSelectorList/Cate
 import SignUpBenefits from "../../components/SignUpBenefits/SignUpBenefits";
 import FeedColumn from "../../components/FeedColumn/FeedColumn";
 import "./FeedPage.css";
+import useScreenWidth from "../../hooks/useScreenWidth";
 
 const FeedPage = () => {
+  const { showCategories } = useScreenWidth();
   return (
     <div className="feed-page">
-      <div className="category-selector-wrapper">
+      {showCategories && <div className="category-selector-wrapper">
         <CategoriesSelectorList />
-      </div>
+      </div>}
       <div className="feed-column-wrapper">
         <FeedColumn />
       </div>

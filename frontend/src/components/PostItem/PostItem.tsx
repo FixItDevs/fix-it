@@ -10,7 +10,7 @@ import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DefaultAvatar from "../../assets/default-avatar.svg";
-import { useScreenWidth } from "../../hooks/useScreenWidth";
+import useScreenWidth from "../../hooks/useScreenWidth";
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
@@ -22,9 +22,8 @@ const PostItem: React.FC<PostObject> = ({
   votes,
   createdAt
 }) => {
-  const screenContextValues = useScreenWidth();
-  const isSmallScreen = screenContextValues?.isSmallScreen;
-  console.log(isSmallScreen)
+  const {isSmallScreen} = useScreenWidth();
+  console.log(isSmallScreen);
 
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
