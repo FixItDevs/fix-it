@@ -23,7 +23,7 @@ export const ScreenWidthProvider = ({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth > 520);
+      setIsSmallScreen(window.innerWidth < 520);
       console.log(window.innerWidth);
     };
 
