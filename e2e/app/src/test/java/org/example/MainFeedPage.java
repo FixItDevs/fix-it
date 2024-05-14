@@ -31,7 +31,7 @@ public class MainFeedPage {
     public String getPageUrl(String localOrDeployed) {
         return switch (localOrDeployed) {
             case "local" -> "http://localhost:5173";
-            case "deployed" -> "http://localhost:5173";
+            case "deployed" -> "https://fix-it-o53b.onrender.com";
 
             default -> throw new IllegalArgumentException("Invalid localOrDeployed value: " + localOrDeployed);
         };
