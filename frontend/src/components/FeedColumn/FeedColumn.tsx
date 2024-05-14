@@ -5,7 +5,7 @@ import { PostObject } from "../../types/post.types";
 import { usePostContext } from "../../context/usePostContext";
 
 const FeedColumn = () => {
-  const {feedPosts, getPosts} = usePostContext();
+  const { feedPosts, getPosts } = usePostContext();
 
   useEffect(() => {
     getPosts();

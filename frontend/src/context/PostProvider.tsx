@@ -11,7 +11,11 @@ interface PostContextType {
   getPosts: () => Promise<void>;
 }
 
-export const PostContext = createContext<PostContextType>({ feedPosts: [], setFeedPosts: () => {}, getPosts: async () => {} });
+export const PostContext = createContext<PostContextType>({
+  feedPosts: [],
+  setFeedPosts: () => {},
+  getPosts: async () => {}
+});
 
 export const PostProvider = ({ children }: { children: React.ReactNode }) => {
   const [feedPosts, setFeedPosts] = useState<PostObject[]>([]);
@@ -27,11 +31,11 @@ export const PostProvider = ({ children }: { children: React.ReactNode }) => {
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
-  }
+  };
 
   return (
     <PostContext.Provider value={{ feedPosts, setFeedPosts, getPosts }}>
       {children}
     </PostContext.Provider>
   );
-}
+};
