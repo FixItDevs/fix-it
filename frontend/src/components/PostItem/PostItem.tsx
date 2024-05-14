@@ -10,6 +10,7 @@ import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DefaultAvatar from "../../assets/default-avatar.svg";
+import { useScreenWidth } from "../../hooks/useScreenWidth";
 import { abbreviateText } from "../../utils/postHelpers";
 
 const PostItem: React.FC<PostObject> = ({
@@ -22,6 +23,9 @@ const PostItem: React.FC<PostObject> = ({
   votes,
   createdAt
 }) => {
+  const isSmallScreen = useScreenWidth();
+  console.log("is small screen:", isSmallScreen);
+
   const abbreviatedText = abbreviateText(postText.body, 40);
 
   const renderVoteSection = (votes: Vote[]) => {
@@ -96,17 +100,65 @@ const PostItem: React.FC<PostObject> = ({
 
   return (
     <div className="post-container">
-      {renderAvatarUsernameSection(
-        postAuthor.username,
-        postAuthor.avatar,
-        createdAt
-      )}
-      <div className="post-section">
-        <div className="post-header">
-          <div className="post-content">
+      {!isSmallScreen?.isSmallScreen ? (
+        <>
+          <div className="post-details">
+            {renderAvatarUsernameSection(
+              postAuthor.username,
+              postAuthor.avatar,
+              createdAt
+            )}
+
+            <h2 className="post-title">{postText.title}</h2>
+            <p className="post-description">{postText.body}</p>
+            <br />
+
+            <div className="post-tag-comment-vote-container">
+              <div className="post-votes-and-comments-section">
+                {renderVoteSection(votes || [])}
+                {renderCommentSection(comments || [])}
+              </div>
+
+              <div className="post-tag-encasing">
+                <LocalOfferIcon />
+                <div className="post-tag-text">
+                  {tags.mainTags.map((mainTag, index) => (
+                    <span key={index} className="main-tag">
+                      {mainTag}{" "}
+                    </span>
+                  ))}
+                  {tags.subTag.map((subTag, index) => (
+                    <span key={index} className="sub-tag">
+                      {subTag}{" "}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="post-images">{renderImageSection(images)}</div>
+        </>
+      ) : (
+        <>
+          <div className="post-header">
+            {renderAvatarUsernameSection(
+              postAuthor.username,
+              postAuthor.avatar,
+              createdAt
+            )}
+
             <h2 className="post-title">{postText.title}</h2>
             <p className="post-description">{abbreviatedText}</p>
             <br />
+          </div>
+          <div className="post-images">{renderImageSection(images)}</div>
+          <div className="post-tag-comment-vote-container">
+            <div className="post-votes-and-comments-section">
+              {renderVoteSection(votes || [])}
+              {renderCommentSection(comments || [])}
+            </div>
+
             <div className="post-tag-encasing">
               <LocalOfferIcon />
               <div className="post-tag-text">
@@ -122,30 +174,9 @@ const PostItem: React.FC<PostObject> = ({
                 ))}
               </div>
             </div>
-            <div className="post-votes-and-comments-section">
-              {renderVoteSection(votes || [])}
-              {renderCommentSection(comments || [])}
-            </div>
           </div>
-          <div className="post-images">{renderImageSection(images)}</div>
-        </div>
-        {/* <div>
-          {videos?.map((video, index) => (
-            <div key={index}>
-              <p>This video does not work for some reason.</p>
-              <iframe
-                width="300"
-                height="200"
-                src="https://www.youtube.com/watch?v=1SVv4RuGWYk"
-                title={video.caption}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-              <p>{video.caption}</p>
-            </div>
-          ))}
-        </div> */}
-      </div>
+        </>
+      )}
     </div>
   );
 };
