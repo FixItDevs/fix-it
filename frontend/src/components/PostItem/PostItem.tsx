@@ -22,8 +22,9 @@ const PostItem: React.FC<PostObject> = ({
   votes,
   createdAt
 }) => {
-  const isSmallScreen = useScreenWidth();
-  console.log("is small screen:", isSmallScreen);
+  const screenContextValues = useScreenWidth();
+  const isSmallScreen = screenContextValues?.isSmallScreen;
+  console.log(isSmallScreen)
 
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
@@ -97,7 +98,7 @@ const PostItem: React.FC<PostObject> = ({
 
   return (
     <div className="post-container">
-      {!isSmallScreen?.isSmallScreen ? (
+      {!isSmallScreen ? (
         <>
           <div className="post-details">
             {renderAvatarUsernameSection(

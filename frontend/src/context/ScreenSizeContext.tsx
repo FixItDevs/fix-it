@@ -4,10 +4,6 @@ import React from "react";
 type ScreenWidthContextType = {
   isSmallScreen: boolean;
 } | null;
-// type ScreenWidthContextType = {
-//   screenWidth: number;
-//   setScreenWidth: React.Dispatch<React.SetStateAction<number>>;
-// } | null;
 
 // Step 1: Create the context
 export const ScreenWidthContext = createContext<ScreenWidthContextType>(null);
@@ -24,7 +20,7 @@ export const ScreenWidthProvider = ({
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 520);
-      console.log(window.innerWidth);
+      // console.log(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);

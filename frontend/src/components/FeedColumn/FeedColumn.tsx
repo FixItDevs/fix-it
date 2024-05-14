@@ -9,7 +9,7 @@ const FeedColumn = () => {
 
   useEffect(() => {
     getPosts();
-  }, [getPosts]);
+  }, []);
 
   return (
     <div className="feed-col-container">
