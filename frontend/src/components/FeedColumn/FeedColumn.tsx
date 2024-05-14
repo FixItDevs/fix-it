@@ -1,33 +1,15 @@
 import "./FeedColumn.css";
 import PostItem from "../PostItem/PostItem";
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { PostObject } from "../../types/post.types";
-import axios from "axios";
-import baseUrl from "../../utils/baseUrl";
-import PostContext from "../../context/PostContext";
+import { usePostContext } from "../../context/usePostContext";
 
 const FeedColumn = () => {
-  const contextValue = useContext(PostContext);
-
-  const feedPosts = contextValue?.feedPosts;
-  const setFeedPosts = contextValue?.setFeedPosts;
-
-  async function getPosts() {
-    try {
-      const response = await axios.get(`${baseUrl}/api/v1.0/posts`);
-      if (response.status !== 200) {
-        throw new Error("Error in network response");
-      }
-      const posts = response.data;
-      setFeedPosts && setFeedPosts(posts);
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-  }
+  const {feedPosts, getPosts} = usePostContext();
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [getPosts]);
 
   return (
     <div className="feed-col-container">
