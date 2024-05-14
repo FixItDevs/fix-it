@@ -36,7 +36,7 @@ const PostItem: React.FC<PostObject> = ({
       vote.type === "upvote" ? upvoteCount++ : downvoteCount++;
     });
     return (
-      <div className="vote-encasing">
+      <div className="icon-encasing vote-encasing">
         <ArrowUpwardIcon sx={{ color: "white" }} />
         {upvoteCount >= downvoteCount && (
           <span className="vote-count">{upvoteCount}</span>
@@ -51,7 +51,7 @@ const PostItem: React.FC<PostObject> = ({
 
   const renderCommentSection = (comments: Comment[]) => {
     return (
-      <div className="comment-encasing">
+      <div className="icon-encasing comment-encasing">
         <ChatBubbleIcon sx={{ color: "white", height: "1.2rem" }} />
         <span className="comment-count">{comments.length}</span>
       </div>

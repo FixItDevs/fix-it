@@ -76,34 +76,33 @@
   border-radius: 0.4rem;
 }
 
-.vote-encasing {
+.icon-encasing {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 2rem;
-  width: 5rem;
-  border-radius: 3rem;
+  height: 2.5rem; 
+  border-radius: 2rem;
   background-color: var(--lighter-green);
-  padding: 0.4rem;
+  padding: 0.1rem 0.8rem; 
+}
+
+.vote-encasing {
+  padding: 0.3rem 0.6rem; 
+}
+
+.comment-encasing {
+  padding: 0.3rem 0.8rem; 
+  margin-left: 0.5rem;
 }
 
 .vote-count {
   color: white;
-}
-
-.comment-encasing {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 2rem;
-  width: 4.5rem;
-  border-radius: 3rem;
-  background-color: var(--lighter-green);
-  padding: 1rem;
+  padding: 0 0.5rem;
 }
 
 .comment-count {
   color: white;
+  padding-left: 0.5rem;
 }
 
 .post-tag-encasing {
