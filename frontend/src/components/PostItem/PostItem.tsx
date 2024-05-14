@@ -23,7 +23,7 @@ const PostItem: React.FC<PostObject> = ({
   createdAt
 }) => {
   const isSmallScreen = useScreenWidth();
-  console.log("is small screen:", isSmallScreen?.isSmallScreen);
+  console.log("is small screen:", isSmallScreen);
 
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
