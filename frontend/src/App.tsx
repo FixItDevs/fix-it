@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FeedPage from "./pages/FeedPage/FeedPage";
 import Navbar from "./components/Navbar/Navbar";
-import {PostProvider} from "./context/PostProvider";
+import { PostProvider } from "./context/PostProvider";
 
 function App() {
-
   return (
     <BrowserRouter>
       <PostProvider>
