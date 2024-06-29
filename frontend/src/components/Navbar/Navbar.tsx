@@ -10,6 +10,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { SearchBar } from "../SearchBar/SearchBar";
 import useScreenWidth from "../../hooks/useScreenWidth";
+import "./Navbar.css";
 
 export default function Navbar() {
   const { showCategories } = useScreenWidth();
