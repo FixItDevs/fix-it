@@ -13,13 +13,13 @@ const FeedPage = ({ isCategoryOverlayActive }: FeedPageProps) => {
   return (
     <div className="feed-page">
       {showCategories && <div className="category-selector-wrapper">
-        <CategoriesSelectorList />
+        <CategoriesSelectorList isCategoryOverlayActive={isCategoryOverlayActive} />
       </div>}
       {
 
       }
       {!showCategories && <div className={`categories-overlay-version ${isCategoryOverlayActive ? 'categories-overlay-version-active' : ''}`}>
-          <CategoriesSelectorList />
+          <CategoriesSelectorList isCategoryOverlayActive={isCategoryOverlayActive} />
         </div>}
       <div className="feed-column-wrapper">
         <FeedColumn />

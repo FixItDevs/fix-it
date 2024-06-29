@@ -6,6 +6,11 @@
   padding: 20px 30px;
 }
 
+.category-selector-box-for-overlay {
+  max-width: 260px;
+  padding-left: 5px;
+}
+
 .categories-title-box {
   padding: 8px 16px;
   display: flex;
@@ -17,6 +22,12 @@
   margin: 10px auto 20px;
   background-color: var(--cold-blue-100);
   transition: background-color 0.3s ease;
+}
+
+.categories-title-box-for-overlay {
+  font-size: 0.65rem;
+  margin: 10px 0px 10px 25px;
+  padding: 8px 10px;
 }
 
 .categories-list-box {
@@ -35,3 +46,4 @@
   height: 1px;
   background-color: var(--grey-300);
 }
+
