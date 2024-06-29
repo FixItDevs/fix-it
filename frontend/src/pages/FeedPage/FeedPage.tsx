@@ -4,13 +4,23 @@ import FeedColumn from "../../components/FeedColumn/FeedColumn";
 import "./FeedPage.css";
 import useScreenWidth from "../../hooks/useScreenWidth";
 
-const FeedPage = () => {
+export interface FeedPageProps {
+  isCategoryOverlayActive: boolean;
+}
+
+const FeedPage = ({ isCategoryOverlayActive }: FeedPageProps) => {
   const { showCategories } = useScreenWidth();
   return (
     <div className="feed-page">
       {showCategories && <div className="category-selector-wrapper">
         <CategoriesSelectorList />
       </div>}
+      {
+
+      }
+      <div className={`categories-overlay-version ${isCategoryOverlayActive ? 'categories-overlay-version-active' : ''}`}>
+          <CategoriesSelectorList />
+        </div>
       <div className="feed-column-wrapper">
         <FeedColumn />
       </div>

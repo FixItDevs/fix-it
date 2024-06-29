@@ -12,8 +12,17 @@ import { SearchBar } from "../SearchBar/SearchBar";
 import useScreenWidth from "../../hooks/useScreenWidth";
 import "./Navbar.css";
 
-export default function Navbar() {
+export interface NavbarProps {
+  isCategoryOverlayActive: boolean;
+  setIsCategoryOverlayActive: (isActive: boolean) => void;
+}
+
+export default function Navbar({ isCategoryOverlayActive, setIsCategoryOverlayActive }: NavbarProps) {
   const { showCategories } = useScreenWidth();
+
+  const handleBurgerMenuClick = () => {
+    setIsCategoryOverlayActive(!isCategoryOverlayActive);
+  };
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -109,6 +118,7 @@ export default function Navbar() {
               color="inherit"
               aria-label="open drawer"
               sx={{ mr: 2 }}
+              onClick={handleBurgerMenuClick}
             >
               <MenuIcon />
             </IconButton>}
