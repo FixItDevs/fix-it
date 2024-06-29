@@ -18,20 +18,6 @@ export const SearchBar: React.FC<SearchBarProps> = () => {
     searchInput.length >= 3 && fetchFilteredPosts(searchInput);
   };
 
-  // function fetchFilteredPosts() {
-  //   axios
-  //     .get("http://localhost:3000/api/v1.0/posts/search", {
-  //       params: {
-  //         searchQuery: searchInput
-  //       }
-  //     })
-  //     .then((res) => {
-  //       const posts = res.data;
-  //       console.log(posts);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
-
   return (
     <div className="search-bar-container">
       <SearchIcon />
