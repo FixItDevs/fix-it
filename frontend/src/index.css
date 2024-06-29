@@ -65,4 +65,8 @@ body {
   .post-images {
     margin-bottom: 20px;
   }
+  .icon-encasing {
+    height: 2rem; 
+    padding: 0.1rem 0.7rem; 
+  }
 }

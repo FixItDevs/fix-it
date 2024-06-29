@@ -11,6 +11,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DefaultAvatar from "../../assets/default-avatar.svg";
 import useScreenWidth from "../../hooks/useScreenWidth";
+import { abbreviateText } from "../../utils/postHelpers";
 
 const PostItem: React.FC<PostObject> = ({
   postAuthor,
@@ -25,6 +26,8 @@ const PostItem: React.FC<PostObject> = ({
   const {isSmallScreen} = useScreenWidth();
   console.log(isSmallScreen);
 
+  const abbreviatedText = abbreviateText(postText.body, 40);
+
   const renderVoteSection = (votes: Vote[]) => {
     let upvoteCount = 0;
     let downvoteCount = 0;
@@ -33,7 +36,7 @@ const PostItem: React.FC<PostObject> = ({
       vote.type === "upvote" ? upvoteCount++ : downvoteCount++;
     });
     return (
-      <div className="vote-encasing">
+      <div className="icon-encasing vote-encasing">
         <ArrowUpwardIcon sx={{ color: "white" }} />
         {upvoteCount >= downvoteCount && (
           <span className="vote-count">{upvoteCount}</span>
@@ -48,7 +51,7 @@ const PostItem: React.FC<PostObject> = ({
 
   const renderCommentSection = (comments: Comment[]) => {
     return (
-      <div className="comment-encasing">
+      <div className="icon-encasing comment-encasing">
         <ChatBubbleIcon sx={{ color: "white", height: "1.2rem" }} />
         <span className="comment-count">{comments.length}</span>
       </div>
@@ -107,7 +110,7 @@ const PostItem: React.FC<PostObject> = ({
             )}
 
             <h2 className="post-title">{postText.title}</h2>
-            <p className="post-description">{postText.body}</p>
+            <p className="post-description">{abbreviatedText}</p>
             <br />
 
             <div className="post-tag-comment-vote-container">
@@ -146,7 +149,7 @@ const PostItem: React.FC<PostObject> = ({
             )}
 
             <h2 className="post-title">{postText.title}</h2>
-            <p className="post-description">{postText.body}</p>
+            <p className="post-description">{abbreviatedText}</p>
             <br />
           </div>
           <div className="post-images">{renderImageSection(images)}</div>
