@@ -7,14 +7,14 @@ import baseUrl from "../utils/baseUrl";
 
 interface PostContextType {
   feedPosts: PostObject[];
-  setFeedPosts: React.Dispatch<React.SetStateAction<PostObject[]>>;
   getPosts: () => Promise<void>;
+  fetchFilteredPosts: (searchInput: string) => Promise<void>;
 }
 
 export const PostContext = createContext<PostContextType>({
   feedPosts: [],
-  setFeedPosts: () => {},
-  getPosts: async () => {}
+  getPosts: async () => { },
+  fetchFilteredPosts: async () => { },
 });
 
 export const PostProvider = ({ children }: { children: React.ReactNode }) => {
@@ -33,9 +33,26 @@ export const PostProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  return (
-    <PostContext.Provider value={{ feedPosts, setFeedPosts, getPosts }}>
-      {children}
-    </PostContext.Provider>
-  );
+  const fetchFilteredPosts = async (searchInput: string) => {
+    try {
+      const response = await axios.get(`${baseUrl}/api/v1.0/posts/search`, {
+        params: {
+          searchQuery: searchInput,
+        },
+      });
+      if (response.status !== 200) {
+        throw new Error("Error in network response");
+      }
+      const posts = response.data;
+      setFeedPosts && setFeedPosts(posts);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+
+    return (
+      <PostContext.Provider value={{ feedPosts, getPosts, fetchFilteredPosts }}>
+        {children}
+      </PostContext.Provider>
+    );
 };

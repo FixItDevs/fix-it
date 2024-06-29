@@ -7,6 +7,8 @@ router.get('/', postController.getAllPosts);
 
 router.get('/tag', postController.getPostsByTag);
 
+router.get('/search', postController.getPostsBySearchQuery);
+
 router.post('/', postController.addPost);
 
 export default router;

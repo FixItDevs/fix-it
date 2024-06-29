@@ -61,3 +61,21 @@ export const getPostsByTag = async (req: Request, res: Response, next: NextFunct
     next(error);
   }
 }
+
+export const getPostsBySearchQuery = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    let { searchQuery } = req.query;
+
+    searchQuery = typeof searchQuery === 'string' ? searchQuery : '';
+    
+    const posts = await Post.find({
+      $or: [
+        {'postText.title': { "$regex": searchQuery, "$options": "i"}},
+        {'postText.body': { "$regex": searchQuery, "$options": "i"}},
+      ]
+      });
+    res.status(200).json(posts);
+  } catch (error) {
+    next(error);
+  }
+}
