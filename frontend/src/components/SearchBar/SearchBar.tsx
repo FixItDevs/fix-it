@@ -1,8 +1,8 @@
 import { TextField } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 import "./SearchBar.css";
-import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
+import { usePostContext } from "../../context/usePostContext";
 
 export interface SearchBarProps {
   onSearch: (searchInput: string) => void;
@@ -10,26 +10,27 @@ export interface SearchBarProps {
 
 export const SearchBar: React.FC<SearchBarProps> = () => {
   const [searchInput, setSearchInput] = useState("");
+  const { fetchFilteredPosts } = usePostContext();
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e?.target.value);
     console.log("searchInput:", searchInput);
-    searchInput.length >= 3 && fetchFilteredPosts();
+    searchInput.length >= 3 && fetchFilteredPosts(searchInput);
   };
 
-  function fetchFilteredPosts() {
-    axios
-      .get("http://localhost:3000/api/v1.0/posts/search", {
-        params: {
-          searchQuery: searchInput
-        }
-      })
-      .then((res) => {
-        const posts = res.data;
-        console.log(posts);
-      })
-      .catch((error) => console.log(error));
-  }
+  // function fetchFilteredPosts() {
+  //   axios
+  //     .get("http://localhost:3000/api/v1.0/posts/search", {
+  //       params: {
+  //         searchQuery: searchInput
+  //       }
+  //     })
+  //     .then((res) => {
+  //       const posts = res.data;
+  //       console.log(posts);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
 
   return (
     <div className="search-bar-container">
