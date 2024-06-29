@@ -9,8 +9,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "husky": "^9.0.11"
-  }
+  "license": "ISC"
 }

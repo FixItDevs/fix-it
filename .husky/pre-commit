@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Navigate to the root directory of the repository
-cd "$(git rev-parse --show-toplevel)"
-
-# Navigate to frontend directory and run linting
-(cd frontend && npm run lint:fix)

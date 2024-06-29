@@ -26,8 +26,8 @@ services:
     env_file:
       - ./backend/.env
     environment: 
-      MONGO_USERNAME=fixit-user
-      MONGO_PW=rfxxdw48EvxLRiT1
+      MONGO_USERNAME: ${MONGO_USERNAME}
+      MONGO_PW: ${MONGO_PW}
 
     develop:
       watch:
