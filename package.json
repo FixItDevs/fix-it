@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cd e2e && ./gradlew build",
-    "prepare": "husky"
+    "test": "cd e2e && ./gradlew build"
   },
   "keywords": [],
   "author": "",
