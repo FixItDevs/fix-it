@@ -3,14 +3,11 @@ import React from "react";
 
 type ScreenWidthContextType = {
   isSmallScreen: boolean;
-} | null;
-// type ScreenWidthContextType = {
-//   screenWidth: number;
-//   setScreenWidth: React.Dispatch<React.SetStateAction<number>>;
-// } | null;
+  showCategories: boolean;
+};
 
 // Step 1: Create the context
-export const ScreenWidthContext = createContext<ScreenWidthContextType>(null);
+export const ScreenWidthContext = createContext<ScreenWidthContextType>({ isSmallScreen: false, showCategories: true });
 
 // Step 2: Create the provider
 // The provider is a component that will wrap every part of the app that needs this context.
@@ -20,11 +17,13 @@ export const ScreenWidthProvider = ({
   children: React.ReactNode;
 }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [showCategories, setShowCategories] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 520);
-      console.log(window.innerWidth);
+      setIsSmallScreen(window.innerWidth <= 520);
+      setShowCategories(window.innerWidth >= 900);
+      // console.log(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);
@@ -35,7 +34,7 @@ export const ScreenWidthProvider = ({
   }, []);
 
   return (
-    <ScreenWidthContext.Provider value={{ isSmallScreen }}>
+    <ScreenWidthContext.Provider value={{ isSmallScreen, showCategories }}>
       {children}
     </ScreenWidthContext.Provider>
   );
