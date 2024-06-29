@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <PostProvider>
-        <ScreenWidthProvider>
+        <ScreenWidthProvider setIsCategoryOverlayActive={setIsCategoryOverlayActive}>
           <div id="app">
             <Navbar isCategoryOverlayActive={isCategoryOverlayActive} setIsCategoryOverlayActive={setIsCategoryOverlayActive} />
             {/* <div className="navbar-spacer"></div> */}

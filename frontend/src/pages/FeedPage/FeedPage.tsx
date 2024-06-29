@@ -18,9 +18,9 @@ const FeedPage = ({ isCategoryOverlayActive }: FeedPageProps) => {
       {
 
       }
-      <div className={`categories-overlay-version ${isCategoryOverlayActive ? 'categories-overlay-version-active' : ''}`}>
+      {!showCategories && <div className={`categories-overlay-version ${isCategoryOverlayActive ? 'categories-overlay-version-active' : ''}`}>
           <CategoriesSelectorList />
-        </div>
+        </div>}
       <div className="feed-column-wrapper">
         <FeedColumn />
       </div>

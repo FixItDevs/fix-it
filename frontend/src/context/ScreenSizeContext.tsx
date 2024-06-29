@@ -12,12 +12,15 @@ export const ScreenWidthContext = createContext<ScreenWidthContextType>({ isSmal
 // Step 2: Create the provider
 // The provider is a component that will wrap every part of the app that needs this context.
 export const ScreenWidthProvider = ({
-  children
+  children,
+  setIsCategoryOverlayActive,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
+    setIsCategoryOverlayActive: (isActive: boolean) => void;
 }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [showCategories, setShowCategories] = useState(true);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,6 +35,22 @@ export const ScreenWidthProvider = ({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    setIsCategoryOverlayActive(false);
+  }, [screenWidth, setIsCategoryOverlayActive]);
 
   return (
     <ScreenWidthContext.Provider value={{ isSmallScreen, showCategories }}>
