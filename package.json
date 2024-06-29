@@ -4,13 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cd e2e && ./gradlew build",
-    "prepare": "husky"
+    "test": "cd e2e && ./gradlew build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "husky": "^9.0.11"
-  }
+  "license": "ISC"
 }
