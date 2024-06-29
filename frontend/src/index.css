@@ -20,6 +20,9 @@
   --cold-blue-150: #e4eaef;
   --cold-blue-200: #dde5ee;
   --cold-blue-300: #ced8e6;
+
+  --dark-green: #05473d;
+  --lighter-green: #36625b;
 }
 
 * {
@@ -49,8 +52,21 @@ body {
   }
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .category-selector-wrapper {
     display: none;
+  }
+} */
+
+@media (max-width: 520px) {
+  .post-container {
+    flex-direction: column;
+  }
+  .post-images {
+    margin-bottom: 20px;
+  }
+  .icon-encasing {
+    height: 2rem; 
+    padding: 0.1rem 0.7rem; 
   }
 }

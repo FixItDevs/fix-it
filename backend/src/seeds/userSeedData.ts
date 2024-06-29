@@ -20,6 +20,12 @@ export const userSeedData = [
     password: 'Password123'
   },
   {
+    _id: '662640880f468f628d71ea48',
+    username: 'Sally',
+    email: 'sally@example.com',
+    password: 'Password123'
+  },
+  {
     _id: '662641bc06a547c6c7f10dc9',
     username: 'Batman',
     avatar: {

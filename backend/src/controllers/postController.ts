@@ -3,7 +3,12 @@ import Post from '../models/postModel';
 
 export const getAllPosts = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const rawPosts = await Post.find();
+    const { offset = 0, _limit = 10 } = req.query
+
+    const rawPosts = await Post.find()
+      .skip(Number(offset))
+      .limit(Number(_limit));
+
     const posts = rawPosts.map(post => {
       const { _id, ...rest } = post.toObject();
       return { postId: _id, ...rest };
