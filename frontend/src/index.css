@@ -52,11 +52,11 @@ body {
   }
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .category-selector-wrapper {
     display: none;
   }
-}
+} */
 
 @media (max-width: 520px) {
   .post-container {

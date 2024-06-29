@@ -10,7 +10,7 @@ import { timeElapsedSince } from "../../utils/timeElapsed";
 import CircleIcon from "@mui/icons-material/Circle";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DefaultAvatar from "../../assets/default-avatar.svg";
-import { useScreenWidth } from "../../hooks/useScreenWidth";
+import useScreenWidth from "../../hooks/useScreenWidth";
 import { abbreviateText } from "../../utils/postHelpers";
 
 const PostItem: React.FC<PostObject> = ({
@@ -23,8 +23,8 @@ const PostItem: React.FC<PostObject> = ({
   votes,
   createdAt
 }) => {
-  const isSmallScreen = useScreenWidth();
-  console.log("is small screen:", isSmallScreen);
+  const {isSmallScreen} = useScreenWidth();
+  console.log(isSmallScreen);
 
   const abbreviatedText = abbreviateText(postText.body, 40);
 
@@ -100,7 +100,7 @@ const PostItem: React.FC<PostObject> = ({
 
   return (
     <div className="post-container">
-      {!isSmallScreen?.isSmallScreen ? (
+      {!isSmallScreen ? (
         <>
           <div className="post-details">
             {renderAvatarUsernameSection(

@@ -16,6 +16,8 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 
+import useScreenWidth from "../../hooks/useScreenWidth";
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -57,6 +59,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+  const { showCategories } = useScreenWidth();
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -160,7 +164,8 @@ export default function Navbar() {
       <Box sx={{ position: "fixed", top: 0, zIndex: 1000, width: "100%" }}>
         <AppBar position="static" sx={{ backgroundColor: "#043B32" }}>
           <Toolbar>
-            <IconButton
+            {!showCategories && <IconButton
+              id='burger-menu-button'
               size="large"
               edge="start"
               color="inherit"
@@ -168,7 +173,7 @@ export default function Navbar() {
               sx={{ mr: 2 }}
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton>}
             <Typography
               variant="h6"
               noWrap
