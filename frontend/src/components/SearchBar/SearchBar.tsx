@@ -14,7 +14,7 @@ export const SearchBar: React.FC<SearchBarProps> = () => {
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e?.target.value);
     console.log("searchInput:", searchInput);
-    fetchFilteredPosts();
+    searchInput.length >= 3 && fetchFilteredPosts();
   };
 
   function fetchFilteredPosts() {
