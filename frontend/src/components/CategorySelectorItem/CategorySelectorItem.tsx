@@ -30,6 +30,7 @@ const CategorySelectorItem: React.FC<CategorySelectorItemProps> = ({
       setOpenCategories(openCategories.filter((cat) => cat !== category));
     } else {
       console.log("Category opened: ", category);
+      console.log("Open categories: ", openCategories);
       setOpenCategories([...openCategories, category]);
     }
   };

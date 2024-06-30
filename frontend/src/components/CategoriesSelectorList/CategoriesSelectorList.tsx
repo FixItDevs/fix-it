@@ -1,14 +1,25 @@
 import "./CategoriesSelectorList.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategorySelectorItem from "../CategorySelectorItem/CategorySelectorItem";
 import { categoriesList } from "../../data/categoriesListData";
 import useScreenWidth from "../../hooks/useScreenWidth";
 
-const CategoriesSelectorList = () => {
+export interface CategoriesSelectorListProps { 
+  isCategoryOverlayActive: boolean;
+}
+
+
+const CategoriesSelectorList = ({ isCategoryOverlayActive }: CategoriesSelectorListProps) => {
   const [openCategories, setOpenCategories] = useState<string[]>([]);
   // const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const { showCategories } = useScreenWidth();
+
+  useEffect(() => {
+    if (!isCategoryOverlayActive) {
+      setOpenCategories([]);
+    } 
+  }, [isCategoryOverlayActive]);
 
   return (
     <div

@@ -2,7 +2,7 @@ import "./FeedColumn.css";
 import PostItem from "../PostItem/PostItem";
 import { useEffect } from "react";
 import { PostObject } from "../../types/post.types";
-import { usePostContext } from "../../context/usePostContext";
+import { usePostContext } from "../../hooks/usePostContext";
 
 const FeedColumn = () => {
   const { feedPosts, getPosts } = usePostContext();

@@ -53,3 +53,25 @@ export interface PostObject {
   votes: Vote[];
   createdAt: string;
 }
+
+export interface AvatarUsernameSectionProps {
+  username: string;
+  avatar: string | null;
+  date: string;
+}
+
+export interface VotesSectionProps {
+  votes: Vote[];
+}
+
+export interface CommentsSectionProps {
+  comments: Comment[];
+}
+
+export interface ImageSectionProps {
+  images: Image[];
+}
+
+export interface TagsSectionProps {
+  tags: Tags;
+}
