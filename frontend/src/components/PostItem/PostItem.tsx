@@ -7,6 +7,7 @@ import {
   VotesSectionProps,
   CommentsSectionProps,
   ImageSectionProps,
+  TagsSectionProps
 } from "../../types/post.types";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -55,18 +56,7 @@ const PostItem: FC<PostObject> = ({
 
               <div className="post-tag-encasing">
                 <LocalOfferIcon />
-                <div className="post-tag-text">
-                  {tags.mainTags.map((mainTag, index) => (
-                    <span key={index} className="main-tag">
-                      {mainTag}{" "}
-                    </span>
-                  ))}
-                  {tags.subTag.map((subTag, index) => (
-                    <span key={index} className="sub-tag">
-                      {subTag}{" "}
-                    </span>
-                  ))}
-                </div>
+                <TagsSection tags={tags} />
               </div>
             </div>
           </div>
@@ -97,19 +87,8 @@ const PostItem: FC<PostObject> = ({
             </div>
 
             <div className="post-tag-encasing">
-              <LocalOfferIcon />
-              <div className="post-tag-text">
-                {tags.mainTags.map((mainTag, index) => (
-                  <span key={index} className="main-tag">
-                    {mainTag}{" "}
-                  </span>
-                ))}
-                {tags.subTag.map((subTag, index) => (
-                  <span key={index} className="sub-tag">
-                    {subTag}{" "}
-                  </span>
-                ))}
-              </div>
+                <LocalOfferIcon />
+                <TagsSection tags={tags} />
             </div>
           </div>
         </>
@@ -184,6 +163,23 @@ const ImageSection: FC<ImageSectionProps> = ({images}) => {
           <div className="image-counter-overlay">{images.length}</div>
         </div>
       )}
+    </div>
+  );
+};
+
+const TagsSection: FC<TagsSectionProps> = ({tags}) => {
+  return (
+    <div className="post-tag-text">
+      {tags.mainTags.map((mainTag, index) => (
+        <span key={index} className="main-tag">
+          {mainTag}{" "}
+        </span>
+      ))}
+      {tags.subTag.map((subTag, index) => (
+        <span key={index} className="sub-tag">
+          {subTag}{" "}
+        </span>
+      ))}
     </div>
   );
 };

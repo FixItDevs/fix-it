@@ -71,3 +71,7 @@ export interface CommentsSectionProps {
 export interface ImageSectionProps {
   images: Image[];
 }
+
+export interface TagsSectionProps {
+  tags: Tags;
+}
