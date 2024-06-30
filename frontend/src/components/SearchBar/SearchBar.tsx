@@ -2,7 +2,7 @@ import { TextField } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 import "./SearchBar.css";
 import SearchIcon from "@mui/icons-material/Search";
-import { usePostContext } from "../../context/usePostContext";
+import { usePostContext } from "../../hooks/usePostContext";
 
 export interface SearchBarProps {
   onSearch: (searchInput: string) => void;
